@@ -20,13 +20,14 @@ export function CallToAction() {
       />
       <Container className="relative">
         <div className="mx-auto max-w-2xl text-center bg-white p-10 rounded-xl">
-          <h2 className="font-display text-3xl tracking-tight text-shamrock sm:text-4xl">
-            Get started today
+          <h2 className="font-display text-3xl font-bold  text-shamrock sm:text-4xl">
+            Start today
           </h2>
-          <p className="mt-4 text-lg tracking-tight text-gray-500">
-          Unlock the full potential of customer loyalty and transform your business into a thriving, customer-centric powerhouse. Join us in redefining the future of retention and lifetime value today!
+          <p className="mt-4 text-xl  text-gray-500">
+            {/* Tap into the power of customer loyalty and turn your business into a customer-focused success story. Join us in revolutionizing retention and lifetime value starting now! */}
+            Let&#39;s grow together with a loyalty program that truly rewards your customers!
           </p>
-          <Button href="/register" color="green" className="mt-10">
+          <Button href="/contact" color="green" className="mt-10">
             Get early access
           </Button>
         </div>

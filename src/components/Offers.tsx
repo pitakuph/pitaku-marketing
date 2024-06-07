@@ -12,33 +12,33 @@ import { Button } from "./Button";
 
 const features = [
     {
-      name: 'Secure Customer Retention',
+      name: 'Boost Customer Retention',
       description:
-        'Leverage personalized rewards and incentives tailored to individual preferences, enhancing satisfaction and fostering emotional connections.',
+        'Use personalized rewards and incentives to increase satisfaction and build emotional connections with your customers.',
       imageSrc: customerRetention,
-      imageAlt: 'Secure Customer Retention',
+      imageAlt: 'Boost Customer Retention',
       page: '/customer-retention'
     },
     {
       name: 'Maximize Lifetime Value',
       description:
-        'Implement intelligent segmentation and targeting strategies to nurture high-value customers, optimizing profitability and long-term revenue streams.',
+        'Use smart segmentation and targeting to nurture your best customers, boosting profits and long-term revenue.',
       imageSrc: lifetimeValue,
       imageAlt: 'Maximize Lifetime Value',
       page: '/customer-lifetime'
     },
     {
-      name: 'Elevate Your Business Across Industries',
+      name: 'Elevate Your Business',
       description:
-        'Seamlessly integrate with retail, lifestyle, travel, and food businesses of any size or scale, providing a unified loyalty experience across diverse consumer touchpoints.',
+        'Easily integrate our loyalty program with retail, lifestyle, travel, and food businesses of any size, creating a unified experience for your customers.',
       imageSrc: elevateBusiness,
-      imageAlt: 'Elevate Your Business Across Industries',
+      imageAlt: 'Elevate Your Business',
       page: '/elevate-businesses'
     },  
     {
       name: 'Partner for Success',
       description:
-        'Collaborate with a trusted partner committed to your success, offering expert guidance, ongoing support, and innovative solutions tailored to your unique business objectives.',
+        'Work with a trusted partner dedicated to your success, providing expert advice, ongoing support, and innovative solutions tailored to your business needs.',
       imageSrc: partnerSuccess,
       imageAlt: 'Partner for Success',
       page: '/partners-success'
@@ -54,7 +54,8 @@ const features = [
       <section
         id="offers"
         aria-label="What can Pitaku do for you?"
-        className="relative overflow-hidden pb-28 pt-20 sm:py-24"
+        // className="relative overflow-hidden pb-28 pt-20 sm:py-20"
+        className="relative overflow-hidden"
       >  
       {/* <Image
         className="absolute left-1/2 top-1/2 max-w-none translate-x-[-44%] translate-y-[-42%]"
@@ -83,12 +84,14 @@ const features = [
                 >
                   <div
                     className={classNames(
-                      featureIdx % 2 === 0 ? 'lg:col-start-1' : 'lg:col-start-8 xl:col-start-9',
+                      // featureIdx % 2 === 0 ? 'lg:col-start-1' : 'lg:col-start-8 xl:col-start-9',
+                      // 'mt-6 lg:col-span-5 lg:row-start-1 lg:mt-0 xl:col-span-4 sm:p-10'
+                      featureIdx % 2 === 0 ? 'lg:col-start-1' : '',
                       'mt-6 lg:col-span-5 lg:row-start-1 lg:mt-0 xl:col-span-4 sm:p-10'
                     )}
                   >
                     <h3 className="text-lg sm:text-3xl font-semibold font-display tracking-tight text-shamrock">{feature.name}</h3>
-                    <p className="mt-4 text-base sm:text-lg text-gray-600">{feature.description}</p>
+                    <p className="mt-4 text-base sm:text-lg text-gray-900">{feature.description}</p>
                     <Button href={feature.page} color="green" className='mt-8'>
                       <span>
                         Learn more
@@ -98,8 +101,10 @@ const features = [
 
                   <div
                     className={classNames(
-                      featureIdx % 2 === 0 ? 'lg:col-start-6 xl:col-start-5' : 'lg:col-start-1',
-                      'flex-auto lg:col-span-7 lg:row-start-1 xl:col-span-8'
+                      // featureIdx % 2 === 0 ? 'lg:col-start-6 xl:col-start-5' : 'lg:col-start-1',
+                      // 'flex-auto lg:col-span-7 lg:row-start-1 xl:col-span-8'
+                      featureIdx % 2 === 0 ? '' : 'xl:col-start-3',
+                      'flex-auto lg:row-start-1 col-span-8'
                     )}
                   >
                     {/* <div className="aspect-h-2 aspect-w-5 overflow-hidden rounded-lg bg-gray-100"> */}

@@ -128,13 +128,13 @@ export function Pricing() {
     >
       <Container>
         <div className="md:text-center">
-          <h2 className="font-display text-3xl tracking-tight text-white sm:text-4xl">
+          <h2 className="font-display text-3xl font-bold text-white sm:text-4xl">
             <span className="relative whitespace-nowrap">
               <span className="relative">Simple pricing,</span>
             </span>{' '}
             for everyone.
           </h2>
-          <p className="mt-4 text-lg text-white">
+          <p className="mt-4 text-xl text-white">
             Enjoy competitive pricing models designed to fit your budget, ensuring maximum return on investment with minimal upfront costs.
           </p>
         </div>
@@ -143,7 +143,7 @@ export function Pricing() {
             name="Starter"
             price="$9"
             description="Good for anyone who is self-employed and just getting started."
-            href="/register"
+            href="/contact"
             features={[
               'Send 10 quotes and invoices',
               'Connect up to 2 bank accounts',
@@ -157,7 +157,7 @@ export function Pricing() {
             name="Small business"
             price="$15"
             description="Perfect for small / medium sized businesses."
-            href="/register"
+            href="/contact"
             features={[
               'Send 25 quotes and invoices',
               'Connect up to 5 bank accounts',
@@ -172,7 +172,7 @@ export function Pricing() {
             name="Enterprise"
             price="$39"
             description="For even the biggest enterprise companies."
-            href="/register"
+            href="/contact"
             features={[
               'Send unlimited quotes and invoices',
               'Connect up to 15 bank accounts',
