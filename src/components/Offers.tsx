@@ -41,7 +41,7 @@ const features = [
         'Work with a trusted partner dedicated to your success, providing expert advice, ongoing support, and innovative solutions tailored to your business needs.',
       imageSrc: partnerSuccess,
       imageAlt: 'Partner for Success',
-      page: '/partners-success'
+      page: '/partner-for-success'
     },        
   ]
   

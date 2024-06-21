@@ -2,7 +2,7 @@ import Image from 'next/image'
 
 import { Button } from '@/components/Button'
 import { Container } from '@/components/Container'
-import backgroundImage from '@/images/wall1.jpg'
+import backgroundImage from '@/images/wall2.jpg'
 
 export function CallToAction() {
   return (
@@ -13,7 +13,7 @@ export function CallToAction() {
       <Image
         className="absolute left-1/2 top-1/2 max-w-none -translate-x-1/2 -translate-y-1/2"
         src={backgroundImage}
-        alt=""
+        alt="pitaku-get-early-access"
         width={2688}
         height={1536}
         unoptimized

@@ -33,10 +33,10 @@ export function Hero({
         <span className="relative whitespace-nowrap text-shamrock">
           <span className="relative font-semibold whitespace-normal">Engage customers</span>
         </span>{' '}
-        and boost lifetime value with our loyalty program!
+        and boost lifetime value!
       </h1>
       <p className="mx-auto mt-6 max-w-2xl text-xl text-gray-700 p-4 sm:p-0">
-        Perfect for businesses in retail, lifestyle, travel, and food industries, our platform helps you build deeper connections and drive sustainable growth.
+        Our loyalty program is perfect for businesses in retail, lifestyle, travel, and food industries, our platform helps you build deeper connections and drive sustainable growth.
       </p>
 
       <div className="mt-10 flex flex-col sm:flex-row justify-center items-center gap-6">
@@ -54,6 +54,8 @@ export function Hero({
           <span className="ml-3 font-medium">Watch how Pitaku works</span>
         </Button>
       </div>
+
+      {/* PARTNER MERCHANTS
       <div className="mt-24 lg:mt-28">
         <p className="font-display text-lg font-bold text-shamrock">
           Our Partner Merchants
@@ -88,7 +90,7 @@ export function Hero({
             </li>
           ))}
         </ul>
-      </div>
+      </div> */}
     </Container>
   )
 }

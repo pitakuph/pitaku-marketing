@@ -1,0 +1,40 @@
+.container img {
+    /* @apply my-10 p-10 object-contain bg-shamrock rounded-xl mx-auto; */
+    @apply my-10 w-full max-h-96 object-cover object-center bg-shamrock rounded-xl mx-auto;
+}
+
+.container h1 {
+    @apply my-4 text-2xl font-semibold font-display text-shamrock sm:text-3xl;
+}
+
+.container h2 {
+    @apply mb-4 text-xl font-medium text-shamrock sm:text-2xl;
+}
+
+.container h3 {
+    @apply mb-4 text-xl font-medium text-shamrock sm:text-2xl;
+}
+
+.container h4 {
+    @apply my-8 text-xl font-semibold text-shamrock sm:text-2xl;
+}
+
+.container h5, .container h6 {
+    @apply my-2 text-lg font-semibold italic text-shamrock sm:text-xl;
+}
+
+.container p {
+    @apply mb-10 leading-relaxed;
+}
+
+.container strong {
+    @apply my-2 text-lg font-medium text-shamrock sm:text-xl;
+}
+
+.container ul {
+    @apply mb-10;
+}
+
+.container li {
+    @apply mb-4;
+}
