@@ -11,15 +11,17 @@ const features = [
   
   export default function Features() {
     return (
-      <div className="bg-slate-900">
+      <section 
+        id="features"
+        aria-label="Pitaku Features"
+        className="bg-slate-900">
         <div className="mx-auto grid max-w-2xl grid-cols-1 items-center gap-x-20 gap-y-16 px-4 py-24 sm:px-6 sm:py-32 lg:max-w-7xl lg:grid-cols-2 lg:px-8">
           <div>
-            <h2 className="text-3xl font-display font-bold tracking-tight text-white sm:text-4xl">
-                Features
+            <h2 className="text-3xl font-display font-bold tracking-tight text-shamrock sm:text-4xl">
+                Pitaku Features
             </h2>
-            <p className="mt-4 text-white">
-              The walnut wood card tray is precision milled to perfectly fit a stack of Focus cards. The powder coated
-              steel divider separates active cards from new ones, or can be used to archive important task lists.
+            <p className="mt-4 text-white text-xl">
+              Discover how our customer-centric approach can elevate your brand and keep your customers engaged and coming back for more.
             </p>
   
             <dl className="mt-16 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-y-16 lg:gap-x-8">
@@ -27,8 +29,8 @@ const features = [
                 <div key={feature.name} 
                     // className="border-t border-shamrock pt-4"
                     >
-                  <dt className="text-lg font-display font-medium text-shamrock">{feature.name}</dt>
-                  <dd className="mt-2 text-sm text-white">{feature.description}</dd>
+                  <dt className="text-xl font-display font-medium text-shamrock">{feature.name}</dt>
+                  <dd className="mt-2 text-base text-white">{feature.description}</dd>
                 </div>
               ))}
             </dl>
@@ -64,7 +66,7 @@ const features = [
             /> */}
           </div>
         </div>
-      </div>
+      </section>
     )
   }
   

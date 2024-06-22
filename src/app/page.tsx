@@ -12,6 +12,7 @@ import { Testimonials } from '@/components/Testimonials'
 import Offers from '@/components/Offers'
 import Faqs from '@/components/Faqs'
 import Features from '@/components/Features'
+import Features2 from '@/components/Features2'
 import VideoDialog from '@/components/VideoDialog'
 
 export default function Home() {
@@ -35,7 +36,8 @@ export default function Home() {
         <Offers />
         {/* <PrimaryFeatures /> */}
         {/* <SecondaryFeatures /> */}
-        <Features />
+        {/* <Features /> */}
+        <Features2 />
         <Pricing />
         <CallToAction />
         {/* <Testimonials /> */}
