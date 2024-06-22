@@ -9,6 +9,8 @@ import logoStaticKit from '@/images/logos/statickit.svg'
 import logoTransistor from '@/images/logos/transistor.svg'
 import logoTuple from '@/images/logos/tuple.svg'
 
+import { TextGenerateEffect } from '@/utils/aceternity/text-generate-effect'
+
 type Props = {
   onWatchClick: () => void
 }
@@ -31,9 +33,11 @@ export function Hero({
       </p> */}
       <h1 className="mx-auto max-w-4xl font-display text-4xl font-medium tracking-tight text-gray-900 sm:text-7xl">
         <span className="relative whitespace-nowrap text-shamrock">
-          <span className="relative font-semibold whitespace-normal">Engage customers</span>
+          {/* <span className="relative font-semibold whitespace-normal">Engage customers</span>           */}
+            <TextGenerateEffect words={'Engage customers'} className='font-semibold whitespace-normal relative text-shamrock' />
         </span>{' '}
-        and boost lifetime value!
+        {/* and boost lifetime value! */}
+        <TextGenerateEffect words={'and boost lifetime value!'} delay={500}/>
       </h1>
       <p className="mx-auto mt-6 max-w-2xl text-xl text-gray-700 p-4 sm:p-0">
         Our loyalty program is perfect for businesses in retail, lifestyle, travel, and food industries, our platform helps you build deeper connections and drive sustainable growth.
@@ -54,7 +58,7 @@ export function Hero({
           <span className="ml-3 font-medium">Watch how Pitaku works</span>
         </Button>
       </div>
-
+        
       {/* PARTNER MERCHANTS
       <div className="mt-24 lg:mt-28">
         <p className="font-display text-lg font-bold text-shamrock">

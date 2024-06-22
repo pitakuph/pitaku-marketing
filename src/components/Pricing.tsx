@@ -73,20 +73,20 @@ function Plan({
       )}
     >
       <h3 className={clsx(
-          'mt-5 font-display text-lg',
+          'mt-5 font-display text-xl font-semibold',
           featured ? 'text-shamrock' : 'text-white',
         )}
         >{name}</h3>
       <p
         className={clsx(
-          'mt-2 text-base',
+          'my-4 text-lg leading-tight',
           featured ? 'text-shamrock' : 'text-white',
         )}
       >
         {description}
       </p>
       <p className={clsx(
-          'order-first font-display text-5xl font-light tracking-tight',
+          'order-first font-display text-4xl',
           featured ? 'text-shamrock' : 'text-white',
         )}
         >
@@ -95,7 +95,7 @@ function Plan({
       <ul
         role="list"
         className={clsx(
-          'order-last mt-10 flex flex-col gap-y-3 text-sm',
+          'order-last mt-10 flex flex-col gap-y-3 text-base',
           featured ? 'text-shamrock' : 'text-white',
         )}
       >
@@ -111,7 +111,7 @@ function Plan({
         variant={featured ? 'solid' : 'solid'}
         color={featured ? 'green' : 'white'}
         className="mt-8"
-        aria-label={`Get started with the ${name} plan for ${price}`}
+        // aria-label={`Get started with the ${name} plan for ${price}`}
       >
         Get started
       </Button>
@@ -139,7 +139,48 @@ export function Pricing() {
           </p>
         </div>
         <div className="-mx-4 mt-16 grid max-w-2xl grid-cols-1 gap-y-10 sm:mx-auto lg:-mx-8 lg:max-w-none lg:grid-cols-3 xl:mx-0 xl:gap-x-8">
-          <Plan
+        <Plan
+            name="30-Day Free Trial"
+            price="Free Trial"
+            description="Good for small businesses who needs to try a loyalty program."
+            href="/contact"
+            features={[
+              'Basic Loyalty Program Feature',
+              'Real-time Sales Report',
+              'Basic Analytics',
+            ]}
+          />
+        <Plan
+            featured
+            name="Premium Plan"
+            price="PHP 1499"
+            description="Good for businesses who needs to scale their business."
+            href="/contact"
+            features={[
+              'Loyalty Program Customization Feature',
+              'Real-time Sales Report',
+              'Complete Analytics',
+              'Customer Data Analytics',
+              'Email Support (2-3 Business Days)',
+              'Chat Support (9am-5pm)'
+            ]}
+          /> 
+        <Plan
+            name="Enterprise"
+            price="PHP 3000++"
+            description="Good for businesses who needs to sustain their business growth."
+            href="/contact"
+            features={[
+              'Loyalty Program Customization Feature',
+              'Real-time Sales Report',
+              'Complete Analytics',
+              'Customer Data Analytics',
+              'Email Support (2-3 Business Days)',
+              'Chat Support (9am-5pm)',
+              'Call Support (9am-5pm)',
+            ]}
+          />                             
+          {/* <Plan
             name="Starter"
             price="$9"
             description="Good for anyone who is self-employed and just getting started."
@@ -180,7 +221,7 @@ export function Pricing() {
               'Automated payroll support',
               'Export up to 25 reports, including TPS',
             ]}
-          />
+          /> */}
         </div>
       </Container>
     </section>

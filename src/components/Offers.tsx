@@ -90,9 +90,9 @@ const features = [
                       'mt-6 lg:col-span-5 lg:row-start-1 lg:mt-0 xl:col-span-4 sm:p-10'
                     )}
                   >
-                    <h3 className="text-lg sm:text-3xl font-semibold font-display tracking-tight text-shamrock">{feature.name}</h3>
-                    <p className="mt-4 text-base sm:text-lg text-gray-900">{feature.description}</p>
-                    <Button href={feature.page} color="green" className='mt-8'>
+                    <h3 className="text-2xl sm:text-3xl font-semibold font-display tracking-tight text-shamrock">{feature.name}</h3>
+                    <p className="mt-6 text-xl text-gray-900">{feature.description}</p>
+                    <Button href={feature.page} color="green" className='mt-10'>
                       <span>
                         Learn more
                       </span>

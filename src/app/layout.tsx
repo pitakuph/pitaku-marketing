@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     default: 'Pitaku - Powerful solution for customer engagement and life time value',
   },
   description:
-    'Our comprehensive loyalty program solution empowers businesses in retail, lifestyle, travel, and food industries to do just that, elevating customer engagement and fueling sustainable growth.',
+    'Our loyalty program is perfect for businesses in retail, lifestyle, travel, and food industries, our platform helps you build deeper connections and drive sustainable growth.',
 }
 
 // const inter = Inter({
