@@ -15,11 +15,20 @@ import Features from '@/components/Features'
 import Features2 from '@/components/Features2'
 import VideoDialog from '@/components/VideoDialog'
 
+import { sendGAEventCustom } from '@/utils/Helper'
+
 export default function Home() {
 
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const onWatchClick = () => {
     setIsOpen(true);
+
+    sendGAEventCustom({ 
+      action: 'click', 
+      category: 'Button',
+      label: 'Watch how Pitaku works - Hero',
+      value: 'Watch how Pitaku works - Hero' 
+    })    
   }
 
   return (

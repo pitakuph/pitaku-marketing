@@ -4,13 +4,15 @@ import clsx from 'clsx'
 import '@/styles/tailwind.css'
 import { type Metadata } from 'next'
 
+import { GoogleAnalytics } from '@next/third-parties/google'
+
 export const metadata: Metadata = {
   title: {
     template: '%s - Pitaku',
-    default: 'Pitaku - Powerful solution for customer engagement and life time value',
+    default: 'Pitaku',
   },
   description:
-    'Our loyalty program is perfect for businesses in retail, lifestyle, travel, and food industries, our platform helps you build deeper connections and drive sustainable growth.',
+    'Pitaku - Powerful solution for customer engagement and life time value',
 }
 
 // const inter = Inter({
@@ -58,6 +60,7 @@ export default function RootLayout({
       )}
     >
       <body className="flex h-full flex-col">{children}</body>
+      <GoogleAnalytics gaId="G-9STR1P6QEC" />
     </html>
   )
 }

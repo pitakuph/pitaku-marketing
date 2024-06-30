@@ -10,6 +10,8 @@ import logoTransistor from '@/images/logos/transistor.svg'
 import logoTuple from '@/images/logos/tuple.svg'
 
 import { TextGenerateEffect } from '@/utils/aceternity/text-generate-effect'
+import { sendGAEventCustom } from '@/utils/Helper'
+
 
 type Props = {
   onWatchClick: () => void
@@ -44,7 +46,18 @@ export function Hero({
       </p>
 
       <div className="mt-10 flex flex-col sm:flex-row justify-center items-center gap-6">
-        <Button href="/contact" color='green'>Get early access</Button>
+        <Button 
+          href="/contact" 
+          color='green'
+          onClick={()=>sendGAEventCustom({ 
+            action: 'click', 
+            category: 'Button',
+            label: 'Get early access - Hero',
+            value: 'Get early access - Hero' 
+          })}
+          >
+            Get early access
+        </Button>
         <Button
           variant="solid"
           onClick={onWatchClick}

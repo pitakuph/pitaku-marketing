@@ -166,8 +166,8 @@ export default function ContactForm() {
         <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
             Welcome to <span className='font-bold text-shamrock'>Pitaku!</span>
         </h2>
-        <p className="mt-2 text-lg leading-8 text-gray-600">
-        Get early access and enjoy our platform for <span className='font-bold text-shamrock'>free for one month!</span>
+        <p className="mt-2 text-xl leading-8 text-gray-600">
+        Get early access and enjoy our platform for <span className='font-bold text-shamrock'>FREE for one month!</span>
         </p>
       </div>
       

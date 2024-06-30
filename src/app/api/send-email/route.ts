@@ -16,10 +16,8 @@ const transporter: Transporter = nodemailer.createTransport({
 
 export async function POST(req: Request) {  
 
-
   const requestData:any = await req.json();
-  console.log("DIEM");
-  console.log(requestData);
+  // console.log(requestData);
 
   const mailOptions = {
     from: process.env.EMAIL_FROM, // Verified email address or domain
@@ -29,7 +27,7 @@ export async function POST(req: Request) {
     html: requestData?.html,
   };
 
-  console.log(mailOptions);
+  // console.log(mailOptions);
 
   try {
     await transporter.sendMail(mailOptions);
