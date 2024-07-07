@@ -9,7 +9,7 @@ const nextConfig = {
     AWS_REGION: process.env.AWS_REGION,
   },
   images: {
-      domains: ['localhost'],
+      domains: ['localhost','pitaku-marketing-alpha.vercel.app'],
       remotePatterns: [
         {
           protocol: 'https',
