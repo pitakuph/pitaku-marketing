@@ -79,12 +79,12 @@ const features = [
             <div className="mt-16 space-y-16">
               {features.map((feature, featureIdx) => (
 
+                <RevealOnScroll key={feature.name}>
                 <div
-                  key={feature.name}
+                  // key={feature.name}
                   className="flex flex-col-reverse lg:grid lg:grid-cols-2 lg:items-center lg:gap-10 "
                 >
-                <RevealOnScroll>
-                <div
+                  <div
                     className={classNames(
                       // featureIdx % 2 === 0 ? 'lg:col-start-1' : 'lg:col-start-8 xl:col-start-9',
                       // 'mt-6 lg:col-span-5 lg:row-start-1 lg:mt-0 xl:col-span-4 sm:p-10'
@@ -116,12 +116,12 @@ const features = [
                         alt={feature.imageAlt}
                         width={400}
                         height={400}
-                        className="w-auto h-[400px] object-contain object-center rounded-full border-8 border-shamrock"
+                        className="w-auto h-auto max-h-[400px] aspect-square object-cover object-center rounded-[200px] border-8 border-shamrock"
                         />
                     </div>
                   </div>
-                  </RevealOnScroll>
-                  </div>
+                </div>
+                </RevealOnScroll>
               ))}
             </div>
           </div>
