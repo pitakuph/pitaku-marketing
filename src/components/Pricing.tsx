@@ -183,7 +183,7 @@ export function Pricing() {
           <RevealOnScroll>
           <Plan
               name="Enterprise"
-              price="PHP 3000++"
+              price="Contact sales"
               description="Good for businesses who needs to sustain their business growth."
               href="/contact"
               features={[
