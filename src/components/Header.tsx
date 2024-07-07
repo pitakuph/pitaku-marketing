@@ -11,6 +11,7 @@ import { Logo } from '@/components/Logo'
 import { NavLink } from '@/components/NavLink'
 
 import { useRouter, usePathname } from 'next/navigation'
+import { sendGAEventCustom } from '@/utils/Helper'
 
 function MobileNavLink({
   href,
@@ -20,7 +21,17 @@ function MobileNavLink({
   children: React.ReactNode
 }) {
   return (
-    <Popover.Button as={Link} href={href} className="block w-full p-2">
+    <Popover.Button 
+      as={Link} 
+      href={href} 
+      className="block w-full p-2"
+      onClick={()=>sendGAEventCustom({ 
+        action: 'click', 
+        category: 'Button',
+        label: `${children} - Header - Mobile`,
+        value: `${children} - Header - Mobile` 
+      })}
+      >
       {children}
     </Popover.Button>
   )
@@ -127,13 +138,33 @@ export function Header() {
 
           <div className="flex items-center gap-x-5 md:gap-x-8">
             { pathname !== '/contact' ? 
-              <Button href="/contact" color="green" className='hidden md:flex'>
+              <Button 
+                href="/contact" 
+                color="green" 
+                className='hidden md:flex'
+                onClick={()=>sendGAEventCustom({ 
+                  action: 'click', 
+                  category: 'Button',
+                  label: 'Get early access - Header',
+                  value: 'Get early access - Header' 
+                })}
+                >
                 <span>
                   Get early access
                 </span>
               </Button>
               :
-              <Button href="/" color="green" className='hidden md:flex'>
+              <Button
+                href="/" 
+                color="green" 
+                className='hidden md:flex'
+                onClick={()=>sendGAEventCustom({ 
+                  action: 'click', 
+                  category: 'Button',
+                  label: 'Learn more - Header',
+                  value: 'Learn more - Header' 
+                })}
+                >
                 <span>
                   Learn more
                 </span>

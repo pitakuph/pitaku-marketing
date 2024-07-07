@@ -1,7 +1,7 @@
 export const Articles = [
     { 
         "id": 0,
-        "title": "Boosting Customer Retention for Your Small Business",
+        "title": "Boosting customer retention for your business",
         "subtitle": "",
         "image":`${process.env.IMAGE_URL}/articles/boosting-customer-retention-for-your-small-business.jpg`,
         "slug":"boosting-customer-retention-for-your-small-business",
@@ -18,7 +18,7 @@ export const Articles = [
       },
       { 
         "id": 1,
-        "title": "Maximizing Customer Lifetime for Your Small Business Using Segmentation and Targeting",
+        "title": "Maximizing customer lifetime for your business using segmentation and targeting",
         "subtitle": "",
         "image":`${process.env.IMAGE_URL}/articles/maximizing-customer-lifetime-for-your-small-business-using-segmentation-and-targeting.jpg`,
         "slug":"maximizing-customer-lifetime-for-your-small-business-using-segmentation-and-targeting",
@@ -35,7 +35,7 @@ export const Articles = [
       },
       { 
         "id": 2,
-        "title": "Elevating Your Small Business Using a Loyalty Program",
+        "title": "Elevating your business using a loyalty program",
         "subtitle": "",
         "image":`${process.env.IMAGE_URL}/articles/elevating-your-small-business-using-a-loyalty-program.jpg`,
         "slug":"elevating-your-small-business-using-a-loyalty-program",
@@ -52,7 +52,7 @@ export const Articles = [
       },
       { 
         "id": 3,
-        "title": "Having a Great Business Tool as a Partner for Success",
+        "title": "Having a great business tool as a partner for success",
         "subtitle": "",
         "image":`${process.env.IMAGE_URL}/articles/having-a-great-business-tool-as-a-partner-for-success.jpg`,
         "slug":"having-a-great-business-tool-as-a-partner-for-success",

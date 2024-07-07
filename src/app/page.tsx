@@ -48,9 +48,9 @@ export default function Home() {
         {/* <Features /> */}
         <Features2 />
         <Pricing />
+        <Faqs />
         <CallToAction />
         {/* <Testimonials /> */}
-        <Faqs />
       </main>
       <Footer />
     </>

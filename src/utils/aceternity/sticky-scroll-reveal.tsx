@@ -107,7 +107,7 @@ export const StickyScroll = ({
         className={cn(
           // "hidden lg:block h-60 w-80 rounded-md bg-white sticky top-10 overflow-hidden",
           // "hidden lg:block h-[400px] w-[400px] rounded-[200px] sticky top-0 overflow-hidden border-white border-8",
-          "hidden lg:block h-[360px] w-[360px] rounded-[180px] sticky top-10 overflow-hidden",
+          "hidden lg:block h-[360px] w-[360px] rounded-[180px] sticky top-10 overflow-hidden border-8 border-shamrock",
           contentClassName
         )}
       >

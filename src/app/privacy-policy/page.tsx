@@ -2,6 +2,12 @@
 // import { Footer } from "@/components/Footer"
 // import { CallToAction } from "@/components/CallToAction"
 import { companyName } from "@/utils/Constant"
+import { type Metadata } from 'next'
+export const metadata: Metadata = {
+  title: 'Privacy Policy',
+  description:
+    'This Privacy Policy outlines how we collect, use, and protect the information you provide when signing up for our loyalty program SaaS product',
+}
 
 export default function PrivacyPolicy() {
   return (

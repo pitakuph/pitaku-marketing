@@ -11,3 +11,8 @@
 .hidden-scrollbar::-webkit-scrollbar {
 display: none; /* Chrome, Safari, and Opera */
 }
+
+html {
+  overflow: auto !important;
+  padding: inherit !important;
+}
