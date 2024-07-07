@@ -1,15 +1,17 @@
+'use client';
 import { motion } from "framer-motion";
 // import Image from 'next/image'
 import { Button } from '@/components/Button'
 import { Container } from '@/components/Container'
 import { AuroraBackground } from '@/utils/aceternity/aurora-background'
-
+import RevealOnScroll from "@/utils/aceternity/reveal-scroll";
+import { sendGAEventCustom } from "@/utils/Helper";
 
 export function CallToAction() {
   return (
     <section
       id="get-started-today"
-      className="relative overflow-hidden bg-shamrock py-36 bg-[url('/images/wall2.jpg')] bg-cover bg-center"
+      className="relative overflow-hidden bg-shamrock py-36 bg-[url('/images/wall7.jpg')] bg-cover bg-center"
     >
 
           {/* <AuroraBackground>
@@ -25,6 +27,7 @@ export function CallToAction() {
             >           */}
 
       <Container className="relative">
+        <RevealOnScroll>
         <div className="mx-auto max-w-2xl text-center bg-white p-14 rounded-xl shadow-black shadow-2xl border-gray-200">
           <h2 className="font-display text-3xl font-bold  text-shamrock sm:text-4xl">
             Start today
@@ -34,10 +37,21 @@ export function CallToAction() {
             {/* Let&#39;s grow together with a loyalty program that truly rewards your customers! */}
             Reward Your Customers, Grow Your Business
           </p>
-          <Button href="/contact" color="green" className="mt-10">
+          <Button 
+            href="/contact" 
+            color="green" 
+            className="mt-10"
+            onClick={()=>sendGAEventCustom({ 
+              action: 'click', 
+              category: 'Button',
+              label: `Get early access - CTA`,
+              value: `Get early access - CTA` 
+            })}
+            >
             Get early access
           </Button>
         </div>
+        </RevealOnScroll>
       </Container>
 
       {/* </motion.div>

@@ -2,6 +2,13 @@ import { Header } from "@/components/Header"
 import { Footer } from "@/components/Footer"
 import { CallToAction } from "@/components/CallToAction"
 import Article from "@/components/blog/Article"
+import { type Metadata } from 'next'
+export const metadata: Metadata = {
+  title: 'Customer Lifetime',
+  description:
+    'Pitaku maximizing customer lifetime for your business using segmentation and targeting',
+}
+
 
 export default function CustomerLifetime() {
   return (

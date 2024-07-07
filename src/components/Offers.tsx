@@ -1,11 +1,11 @@
 'use client';
 import { Container } from "./Container";
 import Image from "next/image";
-
-import customerRetention from '@/images/customer-retention.png'
-import lifetimeValue from '@/images/lifetime-value.png'
-import elevateBusiness from '@/images/elevate-business.png'
-import partnerSuccess from '@/images/partner-success.png'
+import RevealOnScroll from "@/utils/aceternity/reveal-scroll";
+import customerRetention from '@/images/customer-retention.jpg'
+import lifetimeValue from '@/images/lifetime-value.jpg'
+import elevateBusiness from '@/images/elevate-business.jpg'
+import partnerSuccess from '@/images/partner-success.jpg'
 // import backgroundImage from '@/images/background-features.jpg'
 
 import { Button } from "./Button";
@@ -75,11 +75,13 @@ const features = [
               {/* <p className="mt-4 text-gray-500">
               </p> */}
             </div>
-    
+            
             <div className="mt-16 space-y-16">
               {features.map((feature, featureIdx) => (
+
+                <RevealOnScroll key={feature.name}>
                 <div
-                  key={feature.name}
+                  // key={feature.name}
                   className="flex flex-col-reverse lg:grid lg:grid-cols-2 lg:items-center lg:gap-10 "
                 >
                   <div
@@ -114,11 +116,12 @@ const features = [
                         alt={feature.imageAlt}
                         width={400}
                         height={400}
-                        className="w-auto h-[400px] object-contain object-center"
+                        className="w-auto h-auto max-h-[400px] aspect-square object-cover object-center rounded-[200px] border-8 border-shamrock"
                         />
                     </div>
                   </div>
                 </div>
+                </RevealOnScroll>
               ))}
             </div>
           </div>

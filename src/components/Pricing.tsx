@@ -2,6 +2,8 @@ import clsx from 'clsx'
 
 import { Button } from '@/components/Button'
 import { Container } from '@/components/Container'
+import RevealOnScroll from '@/utils/aceternity/reveal-scroll'
+import { sendGAEventCustom } from '@/utils/Helper'
 
 function SwirlyDoodle(props: React.ComponentPropsWithoutRef<'svg'>) {
   return (
@@ -112,6 +114,12 @@ function Plan({
         color={featured ? 'green' : 'white'}
         className="mt-8"
         // aria-label={`Get started with the ${name} plan for ${price}`}
+        onClick={()=>sendGAEventCustom({ 
+          action: 'click', 
+          category: 'Button',
+          label: `${name} - Get Started - Pricing`,
+          value: `${name} - Get Started - Pricing ` 
+        })}
       >
         Get started
       </Button>
@@ -128,6 +136,7 @@ export function Pricing() {
     >
       <Container>
         <div className="md:text-center">
+          <RevealOnScroll>
           <h2 className="font-display text-3xl font-bold text-white sm:text-4xl">
             <span className="relative whitespace-nowrap">
               <span className="relative">Simple pricing,</span>
@@ -137,91 +146,99 @@ export function Pricing() {
           <p className="mt-4 text-xl text-white">
             Enjoy competitive pricing models designed to fit your budget, ensuring maximum return on investment with minimal upfront costs.
           </p>
+          </RevealOnScroll>
         </div>
+
         <div className="-mx-4 mt-16 grid max-w-2xl grid-cols-1 gap-y-10 sm:mx-auto lg:-mx-8 lg:max-w-none lg:grid-cols-3 xl:mx-0 xl:gap-x-8">
-        <Plan
-            name="30-Day Free Trial"
-            price="Free Trial"
-            description="Good for small businesses who needs to try a loyalty program."
-            href="/contact"
-            features={[
-              'Basic Loyalty Program Feature',
-              'Real-time Sales Report',
-              'Basic Analytics',
-            ]}
-          />
-        <Plan
-            featured
-            name="Premium Plan"
-            price="PHP 1499"
-            description="Good for businesses who needs to scale their business."
-            href="/contact"
-            features={[
-              'Loyalty Program Customization Feature',
-              'Real-time Sales Report',
-              'Complete Analytics',
-              'Customer Data Analytics',
-              'Email Support (2-3 Business Days)',
-              'Chat Support (9am-5pm)'
-            ]}
-          /> 
-        <Plan
-            name="Enterprise"
-            price="PHP 3000++"
-            description="Good for businesses who needs to sustain their business growth."
-            href="/contact"
-            features={[
-              'Loyalty Program Customization Feature',
-              'Real-time Sales Report',
-              'Complete Analytics',
-              'Customer Data Analytics',
-              'Email Support (2-3 Business Days)',
-              'Chat Support (9am-5pm)',
-              'Call Support (9am-5pm)',
-            ]}
-          />                             
-          {/* <Plan
-            name="Starter"
-            price="$9"
-            description="Good for anyone who is self-employed and just getting started."
-            href="/contact"
-            features={[
-              'Send 10 quotes and invoices',
-              'Connect up to 2 bank accounts',
-              'Track up to 15 expenses per month',
-              'Manual payroll support',
-              'Export up to 3 reports',
-            ]}
-          />
+          <RevealOnScroll>
           <Plan
-            featured
-            name="Small business"
-            price="$15"
-            description="Perfect for small / medium sized businesses."
-            href="/contact"
-            features={[
-              'Send 25 quotes and invoices',
-              'Connect up to 5 bank accounts',
-              'Track up to 50 expenses per month',
-              'Automated payroll support',
-              'Export up to 12 reports',
-              'Bulk reconcile transactions',
-              'Track in multiple currencies',
-            ]}
-          />
+              name="30-Day Free Trial"
+              price="Free Trial"
+              description="Good for small businesses who needs to try a loyalty program."
+              href="/contact"
+              features={[
+                'Basic Loyalty Program Feature',
+                'Real-time Sales Report',
+                'Basic Analytics',
+              ]}
+            />
+          </RevealOnScroll>
+          <RevealOnScroll>
           <Plan
-            name="Enterprise"
-            price="$39"
-            description="For even the biggest enterprise companies."
-            href="/contact"
-            features={[
-              'Send unlimited quotes and invoices',
-              'Connect up to 15 bank accounts',
-              'Track up to 200 expenses per month',
-              'Automated payroll support',
-              'Export up to 25 reports, including TPS',
-            ]}
-          /> */}
+              featured
+              name="Premium Plan"
+              price="PHP 1499"
+              description="Good for businesses who needs to scale their business."
+              href="/contact"
+              features={[
+                'Loyalty Program Customization Feature',
+                'Real-time Sales Report',
+                'Complete Analytics',
+                'Customer Data Analytics',
+                'Email Support (2-3 Business Days)',
+                'Chat Support (9am-5pm)'
+              ]}
+            /> 
+          </RevealOnScroll>
+          <RevealOnScroll>
+          <Plan
+              name="Enterprise"
+              price="Contact sales"
+              description="Good for businesses who needs to sustain their business growth."
+              href="/contact"
+              features={[
+                'Loyalty Program Customization Feature',
+                'Real-time Sales Report',
+                'Complete Analytics',
+                'Customer Data Analytics',
+                'Email Support (2-3 Business Days)',
+                'Chat Support (9am-5pm)',
+                'Call Support (9am-5pm)',
+              ]}
+            />       
+            </RevealOnScroll>                      
+            {/* <Plan
+              name="Starter"
+              price="$9"
+              description="Good for anyone who is self-employed and just getting started."
+              href="/contact"
+              features={[
+                'Send 10 quotes and invoices',
+                'Connect up to 2 bank accounts',
+                'Track up to 15 expenses per month',
+                'Manual payroll support',
+                'Export up to 3 reports',
+              ]}
+            />
+            <Plan
+              featured
+              name="Small business"
+              price="$15"
+              description="Perfect for small / medium sized businesses."
+              href="/contact"
+              features={[
+                'Send 25 quotes and invoices',
+                'Connect up to 5 bank accounts',
+                'Track up to 50 expenses per month',
+                'Automated payroll support',
+                'Export up to 12 reports',
+                'Bulk reconcile transactions',
+                'Track in multiple currencies',
+              ]}
+            />
+            <Plan
+              name="Enterprise"
+              price="$39"
+              description="For even the biggest enterprise companies."
+              href="/contact"
+              features={[
+                'Send unlimited quotes and invoices',
+                'Connect up to 15 bank accounts',
+                'Track up to 200 expenses per month',
+                'Automated payroll support',
+                'Export up to 25 reports, including TPS',
+              ]}
+            /> */}
         </div>
       </Container>
     </section>

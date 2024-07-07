@@ -10,6 +10,9 @@ import { Container } from '@/components/Container'
 import { Logo } from '@/components/Logo'
 import { NavLink } from '@/components/NavLink'
 
+import { useRouter, usePathname } from 'next/navigation'
+import { sendGAEventCustom } from '@/utils/Helper'
+
 function MobileNavLink({
   href,
   children,
@@ -18,7 +21,17 @@ function MobileNavLink({
   children: React.ReactNode
 }) {
   return (
-    <Popover.Button as={Link} href={href} className="block w-full p-2">
+    <Popover.Button 
+      as={Link} 
+      href={href} 
+      className="block w-full p-2"
+      onClick={()=>sendGAEventCustom({ 
+        action: 'click', 
+        category: 'Button',
+        label: `${children} - Header - Mobile`,
+        value: `${children} - Header - Mobile` 
+      })}
+      >
       {children}
     </Popover.Button>
   )
@@ -52,6 +65,8 @@ function MobileNavIcon({ open }: { open: boolean }) {
 }
 
 function MobileNavigation() {
+  const pathname = usePathname();
+
   return (
     <Popover>
       <Popover.Button
@@ -89,7 +104,11 @@ function MobileNavigation() {
             <MobileNavLink href="/#features">Features</MobileNavLink>
             <MobileNavLink href="/#pricing">Pricing</MobileNavLink>
             <hr className="m-2 border-slate-300/40" />
-            <MobileNavLink href="/contact">Get early access</MobileNavLink>
+
+            { pathname !== '/contact' &&
+              <MobileNavLink href="/contact">Get early access</MobileNavLink>
+            }
+
           </Popover.Panel>
         </Transition.Child>
       </Transition.Root>
@@ -98,10 +117,14 @@ function MobileNavigation() {
 }
 
 export function Header() {
+  
+  const pathname = usePathname();
+
   return (
     <header className="pt-4 pb-10">
       <Container>
         <nav className="relative z-50 flex justify-between">
+          
           <div className="flex items-center md:gap-x-12">
             <Link href="/" aria-label="Home">
               <Logo className="w-auto h-28 object-contain" />
@@ -112,19 +135,46 @@ export function Header() {
               <NavLink href="/#pricing">Pricing</NavLink>
             </div>
           </div>
+
           <div className="flex items-center gap-x-5 md:gap-x-8">
-            {/* <div className="hidden md:block">
-              <NavLink href="/login">Sign in</NavLink>
-            </div> */}
-            <Button href="/contact" color="green" className='hidden md:flex'>
-              <span>
-                Get early access
-              </span>
-            </Button>
+            { pathname !== '/contact' ? 
+              <Button 
+                href="/contact" 
+                color="green" 
+                className='hidden md:flex'
+                onClick={()=>sendGAEventCustom({ 
+                  action: 'click', 
+                  category: 'Button',
+                  label: 'Get early access - Header',
+                  value: 'Get early access - Header' 
+                })}
+                >
+                <span>
+                  Get early access
+                </span>
+              </Button>
+              :
+              <Button
+                href="/" 
+                color="green" 
+                className='hidden md:flex'
+                onClick={()=>sendGAEventCustom({ 
+                  action: 'click', 
+                  category: 'Button',
+                  label: 'Learn more - Header',
+                  value: 'Learn more - Header' 
+                })}
+                >
+                <span>
+                  Learn more
+                </span>
+              </Button>              
+            }
             <div className="-mr-1 md:hidden">
               <MobileNavigation />
             </div>
           </div>
+
         </nav>
       </Container>
     </header>

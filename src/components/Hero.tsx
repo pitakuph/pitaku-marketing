@@ -10,6 +10,8 @@ import logoTransistor from '@/images/logos/transistor.svg'
 import logoTuple from '@/images/logos/tuple.svg'
 
 import { TextGenerateEffect } from '@/utils/aceternity/text-generate-effect'
+import { sendGAEventCustom } from '@/utils/Helper'
+
 
 type Props = {
   onWatchClick: () => void
@@ -31,7 +33,7 @@ export function Hero({
       <p className="mx-auto mt-6 max-w-2xl text-lg tracking-tight text-gray-700 p-4 sm:p-0">
         Our comprehensive loyalty program solution empowers businesses in retail, lifestyle, travel, and food industries to do just that, elevating customer engagement and fueling sustainable growth.
       </p> */}
-      <h1 className="mx-auto max-w-4xl font-display text-4xl font-medium tracking-tight text-gray-900 sm:text-7xl">
+      <h1 className="sm:mt-10 mx-auto max-w-4xl font-display text-4xl font-medium tracking-tight text-gray-900 sm:text-7xl">
         <span className="relative whitespace-nowrap text-shamrock">
           {/* <span className="relative font-semibold whitespace-normal">Engage customers</span>           */}
             <TextGenerateEffect words={'Engage customers'} className='font-semibold whitespace-normal relative text-shamrock' />
@@ -43,8 +45,19 @@ export function Hero({
         Our loyalty program is perfect for businesses in retail, lifestyle, travel, and food industries, our platform helps you build deeper connections and drive sustainable growth.
       </p>
 
-      <div className="mt-10 flex flex-col sm:flex-row justify-center items-center gap-6">
-        <Button href="/contact" color='green'>Get early access</Button>
+      <div className="mt-20 flex flex-col sm:flex-row justify-center items-center gap-6">
+        <Button 
+          href="/contact" 
+          color='green'
+          onClick={()=>sendGAEventCustom({ 
+            action: 'click', 
+            category: 'Button',
+            label: 'Get early access - Hero',
+            value: 'Get early access - Hero' 
+          })}
+          >
+            Get early access
+        </Button>
         <Button
           variant="solid"
           onClick={onWatchClick}

@@ -68,10 +68,10 @@ const features = [
         
         <div className="mx-auto py-20">
 
-          <Spotlight
+          {/* <Spotlight
             className="left-[500px] rotate-180"
             fill="white"
-          />        
+          />         */}
 
           {/* <AuroraBackground>
             <motion.div

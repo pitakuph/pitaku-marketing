@@ -2,6 +2,12 @@ import { Header } from "@/components/Header"
 import { Footer } from "@/components/Footer"
 import { CallToAction } from "@/components/CallToAction"
 import Article from "@/components/blog/Article"
+import { type Metadata } from 'next'
+export const metadata: Metadata = {
+  title: 'Elevate Your Business',
+  description:
+    'Elevating your business using Pitaku loyalty program',
+}
 
 export default function ElevateBusinesses() {
   return (
