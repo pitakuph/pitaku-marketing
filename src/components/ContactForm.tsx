@@ -116,6 +116,7 @@ export default function ContactForm() {
   const [agreed, setAgreed] = useState(false)
   // const watchAllFields = watch();
 
+  const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
   /**
@@ -124,6 +125,7 @@ export default function ContactForm() {
   const onSubmit: SubmitHandler<Inputs> = async (data:any) => {
     // console.log(data)
     // submit email
+    setLoading(true);
 
     // HTML TEMPLATE
     const htmlText:string = `
@@ -152,19 +154,44 @@ export default function ContactForm() {
     };
 
     console.log(payload);
+
+    // // tracking for submit button
+    // sendGAEventCustom({ 
+    //   action: 'click', 
+    //   category: 'Button',
+    //   label: `Submit`,
+    //   value: `Submit` 
+    // }) 
+
+    // tracking for business category selection 
+    sendGAEventCustom({
+      action: 'selection',
+      category: 'Combobox',
+      label: data?.business_category,
+      value: data?.business_category
+    });    
   
     try {
       const response = await axios.post('/api/send-email', payload);
       console.log('Email sent:', response.data);
       if(response.data?.success){
+        setLoading(false);
         setSubmitted(true);
+
+        // tracking for successful send
+        sendGAEventCustom({ 
+          action: 'submission', 
+          category: 'Form',
+          label: 'Email Success',
+          value: 'Email Success' 
+        })        
       }
       return response.data;
     } catch (error) {
+      setLoading(false);
       console.error('Error sending email:', error);
       throw error;
     }
-
   }
 
   return (
@@ -368,9 +395,16 @@ export default function ContactForm() {
           </div>   
         </div>
         <div className="mt-10">
-          <Button type='submit' color="green" className={`w-full ${agreed ? 'opacity-100 pointer-events-auto' : 'opacity-50 pointer-events-none'}`}>
+          <Button 
+            type='submit' 
+            color="green" 
+            className={`
+              ${agreed ? 'opacity-100 pointer-events-auto' : 'opacity-50 pointer-events-none'} 
+              ${!loading ? 'opacity-100 pointer-events-auto' : 'opacity-50 pointer-events-none'} 
+              w-full 
+            `}>
               <span>
-                Submit
+                { loading ? 'Submitting...' : 'Submit' } 
               </span>
             </Button>
         </div>
