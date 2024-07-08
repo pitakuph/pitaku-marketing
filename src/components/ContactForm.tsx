@@ -1,10 +1,13 @@
 'use client';
 
 import { useState } from 'react'
-import { Button } from './Button';
+// import { Button } from './Button';
 import { Field, Label, Switch } from '@headlessui/react'
 import { SubmitHandler, useForm } from 'react-hook-form';
 import ComboBox from './Combobox';
+import { Button } from '@/components/Button'
+import { sendGAEventCustom } from "@/utils/Helper";
+
 
 import axios from 'axios';
 import { companyEmailMarketing, titleEmailMarketing } from '@/utils/Constant';
@@ -113,6 +116,7 @@ export default function ContactForm() {
   const [agreed, setAgreed] = useState(false)
   // const watchAllFields = watch();
 
+  const [submitted, setSubmitted] = useState(false);
 
   /**
    * on Submit
@@ -152,6 +156,9 @@ export default function ContactForm() {
     try {
       const response = await axios.post('/api/send-email', payload);
       console.log('Email sent:', response.data);
+      if(response.data?.success){
+        setSubmitted(true);
+      }
       return response.data;
     } catch (error) {
       console.error('Error sending email:', error);
@@ -161,9 +168,9 @@ export default function ContactForm() {
   }
 
   return (
-    <div className="isolate px-6 py-6 sm:py-12 lg:px-8 min-h-screen">
+    <div className="px-6 py-6 sm:py-12 lg:px-8 relative">
       <div className="mx-auto text-center">
-        <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+        <h2 className="text-3xl font-bold font-display tracking-tight text-gray-900 sm:text-4xl">
             Welcome to <span className='font-bold text-shamrock'>Pitaku!</span>
         </h2>
         <p className="mt-2 text-xl leading-8 text-gray-600">
@@ -171,8 +178,34 @@ export default function ContactForm() {
         </p>
       </div>
       
+      { 
+      submitted ? 
+      <div className="relative mx-auto max-w-2xl text-center my-14 sm:p-6 bg-white/50 rounded-xl">
+        <h1 className='text-3xl font-display font-bold text-shamrock'>
+          Thank you for signing up to our loyalty program platform! 
+        </h1>
+        <p className='text-lg my-6 leading-loose'>
+          We&#39;re excited to have you on board. 
+          <br></br>
+          Stay tuned for more updates, and thank you for your patience and support.
+        </p>
+        <Button 
+            href="/" 
+            color="green" 
+            className="mt-10"
+            onClick={()=>sendGAEventCustom({ 
+              action: 'click', 
+              category: 'Button',
+              label: `Go back home`,
+              value: `Go back home` 
+            })}
+            >
+            Go back home
+          </Button>
+      </div>
+      :
       <form 
-        className="mx-auto mt-16 max-w-4xl"
+        className="relative mx-auto my-16 max-w-4xl "
         onSubmit={handleSubmit(onSubmit)}
         >
         <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
@@ -342,6 +375,7 @@ export default function ContactForm() {
             </Button>
         </div>
       </form>
+      }
     </div>
   )
 }
