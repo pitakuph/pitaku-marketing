@@ -5,8 +5,20 @@ import Article from "@/components/blog/Article"
 import { type Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Customer Lifetime',
-  description:
-    'Pitaku maximizing customer lifetime for your business using segmentation and targeting',
+  description:'Pitaku maximizing customer lifetime for your business using segmentation and targeting',
+  openGraph: {
+    title: 'Customer Lifetime - Pitaku PH',
+    description: 'Pitaku maximizing customer lifetime for your business using segmentation and targeting',
+    images: [
+      {
+        url: '/articles/maximizing-customer-lifetime-for-your-small-business-using-segmentation-and-targeting.jpg',
+        width: 1600,
+        height: 1200,
+        alt: 'maximizing-customer-lifetime-for-your-small-business-using-segmentation-and-targeting',
+      },
+    ],
+    siteName: 'Pitaku PH',
+  },  
 }
 
 
