@@ -8,11 +8,25 @@ import { GoogleAnalytics } from '@next/third-parties/google'
 
 export const metadata: Metadata = {
   title: {
-    template: '%s - Pitaku',
-    default: 'Pitaku',
+    template: '%s - Pitaku PH',
+    default: 'Pitaku PH',
   },
-  description:
-    'Pitaku - Powerful solution for customer engagement and life time value',
+  description: 'Pitaku PH - Powerful solution for customer engagement and life time value',
+  openGraph: {
+    url: 'https://www.pitaku.ph',
+    title: 'Pitaku PH',
+    description:
+      'Pitaku PH - Powerful solution for customer engagement and life time value',
+    images: [
+      {
+        url: '/articles/boosting-customer-retention-for-your-small-business.jpg',
+        width: 800,
+        height: 600,
+        alt: 'Pitaku PH',
+      },
+    ],
+    siteName: 'Pitaku PH',
+  },   
 }
 
 // const inter = Inter({
