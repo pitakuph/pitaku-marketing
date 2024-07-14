@@ -112,7 +112,7 @@ export default function VideoDialog({
                     <XMarkIcon className="h-6 w-6" aria-hidden="true" />
                   </button>
 
-                  <div className='w-full flex items-center justify-center py-10'>
+                  <div className='w-full flex items-center justify-center sm:p-6'>
                     {/* YOUTUBE VIDEO */}
                     <YouTubePlayer videoId="j6BAOIxtHAE" />                  
                   </div>
