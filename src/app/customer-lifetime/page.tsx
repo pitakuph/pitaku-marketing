@@ -13,7 +13,7 @@ export const metadata: Metadata = {
       {
         url: '/articles/maximizing-customer-lifetime-for-your-small-business-using-segmentation-and-targeting.jpg',
         width: 1600,
-        height: 1200,
+        height: 914,
         alt: 'maximizing-customer-lifetime-for-your-small-business-using-segmentation-and-targeting',
       },
     ],

@@ -5,8 +5,20 @@ import Article from "@/components/blog/Article"
 import { type Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Elevate Your Business',
-  description:
-    'Elevating your business using Pitaku loyalty program',
+  description: 'Elevating your business using Pitaku loyalty program',
+  openGraph: {
+    title: 'Elevate Your Business - Pitaku PH',
+    description: 'Elevating your business using Pitaku loyalty program',
+    images: [
+      {
+        url: '/articles/elevating-your-small-business-using-a-loyalty-program.jpg',
+        width: 1600,
+        height: 914,
+        alt: 'elevating-your-small-business-using-a-loyalty-program',
+      },
+    ],
+    siteName: 'Pitaku PH',
+  },  
 }
 
 export default function ElevateBusinesses() {

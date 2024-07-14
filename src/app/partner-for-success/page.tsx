@@ -5,8 +5,20 @@ import Article from "@/components/blog/Article"
 import { type Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Partner For Success',
-  description:
-    'Having Pitaku as a great business tool and a partner for success',
+  description: 'Having Pitaku as a great business tool and a partner for success',
+  openGraph: {
+    title: 'Partner For Success - Pitaku PH',
+    description: 'Having Pitaku as a great business tool and a partner for success',
+    images: [
+      {
+        url: '/articles/having-a-great-business-tool-as-a-partner-for-success.jpg',
+        width: 1600,
+        height: 914,
+        alt: 'having-a-great-business-tool-as-a-partner-for-success',
+      },
+    ],
+    siteName: 'Pitaku PH',
+  },   
 }
 
 export default function PartnerForSuccess() {
