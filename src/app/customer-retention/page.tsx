@@ -5,8 +5,20 @@ import Article from "@/components/blog/Article"
 import { type Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Customer Retention',
-  description:
-    'Pitaku boosting customer retention for your business',
+  description: 'Pitaku boosting customer retention for your business',
+  openGraph: {
+    title: 'Customer Retention - Pitaku PH',
+    description: 'Pitaku boosting customer retention for your business',
+    images: [
+      {
+        url: '/articles/boosting-customer-retention-for-your-small-business.jpg',
+        width: 1600,
+        height: 914,
+        alt: 'boosting-customer-retention-for-your-small-business',
+      },
+    ],
+    siteName: 'Pitaku PH',
+  },   
 }
 
 export default function CustomerRetention() {

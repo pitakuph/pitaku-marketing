@@ -20,9 +20,9 @@ export const metadata: Metadata = {
     images: [
       {
         url: '/articles/boosting-customer-retention-for-your-small-business.jpg',
-        width: 800,
-        height: 600,
-        alt: 'Pitaku PH',
+        width: 1600,
+        height: 914,
+        alt: 'Pitaku PH - Powerful solution for customer engagement and life time value',
       },
     ],
     siteName: 'Pitaku PH',
