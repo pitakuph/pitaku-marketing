@@ -1,10 +1,11 @@
 'use client'
 
-import { Disclosure } from '@headlessui/react'
-import { MinusSmallIcon, PlusSmallIcon } from '@heroicons/react/24/outline'
+import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react'
+import { MinusIcon, PlusIcon } from '@heroicons/react/24/outline'
 import { sendGAEventCustom } from '@/utils/Helper'
 
 import RevealOnScroll from '@/utils/aceternity/reveal-scroll'
+import { useState, useEffect, useRef } from 'react'
 
 const faqs = [
   // {
@@ -43,6 +44,32 @@ const faqs = [
 ]
 
 export default function Faqs() {
+
+  // const [previous, setPrevious] = useState<any>(null);
+  // const [current, setCurrent] = useState<any>("");
+
+  // useEffect(()=>{
+  //   console.log("previous", previous);
+  // },[previous])
+
+  // useEffect(()=>{
+  //   console.log("current", current);
+  // },[current])  
+
+  const handleDisclosureButtonClick = (event:any) => {
+    const disclosureButtons =
+      document.getElementsByClassName("disclosure-button");
+    for (let i = 0; i < disclosureButtons.length; i++) {
+      const disclosureButton:any = disclosureButtons.item(i);
+      if (
+        disclosureButton !== event.target &&
+        disclosureButton.getAttribute("data-headlessui-state") === "open"
+      ) {
+        disclosureButton.click();
+      }
+    }
+  };  
+
   return (
     <div className="bg-slate-50">
       {/* <div className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8 lg:py-40"> */}
@@ -53,35 +80,40 @@ export default function Faqs() {
             Frequently asked questions
           </h2>
           <dl className="mt-10 space-y-10 divide-y divide-gray-900/10">
-            {faqs.map((faq) => (
+            {faqs.map((faq, index) => (
               <Disclosure 
                 as="div" 
-                key={faq.question} 
+                key={index} 
                 className="pt-6" 
                 onClick={()=>sendGAEventCustom({ 
                   action: 'click', 
                   category: 'Button',
-                  label: `${faq.question} - FAQs`,
-                  value: `${faq.question} - FAQs` 
+                  label: `${faq?.question} - FAQs`,
+                  value: `${faq?.question} - FAQs` 
                 })}
                 >
-                {({ open }) => (
+                {({ open, close }) => (
                   <>
                     <dt>
-                      <Disclosure.Button className="flex w-full items-start justify-between text-left text-gray-900">
-                        <span className="text-xl font-semibold leading-7">{faq.question}</span>
+                      <DisclosureButton 
+                        className="flex w-full items-start justify-between text-left text-gray-900 disclosure-button"
+                        onClick={handleDisclosureButtonClick}
+                        >
+                        <span className="text-xl font-semibold leading-7">{faq?.question}</span>
                         <span className="ml-6 flex h-7 items-center">
-                          {open ? (
-                            <MinusSmallIcon className="h-6 w-6" aria-hidden="true" />
+                          {(open) ? (
+                            <MinusIcon className="h-6 w-6" aria-hidden="true" />
                           ) : (
-                            <PlusSmallIcon className="h-6 w-6" aria-hidden="true" />
+                            <PlusIcon className="h-6 w-6" aria-hidden="true" />
                           )}
                         </span>
-                      </Disclosure.Button>
+                      </DisclosureButton>
                     </dt>
-                    <Disclosure.Panel as="dd" className="mt-4 pr-12">
+                    <DisclosurePanel as="dd" 
+                      className={`mt-4 pr-12`}
+                      > 
                       <p className="text-lg leading-7 text-gray-700">{faq.answer}</p>
-                    </Disclosure.Panel>
+                    </DisclosurePanel>
                   </>
                 )}
               </Disclosure>
