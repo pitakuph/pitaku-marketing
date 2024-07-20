@@ -201,7 +201,7 @@ export default function ContactForm() {
             Welcome to <span className='font-bold text-shamrock'>Pitaku!</span>
         </h2>
         <p className="mt-2 text-xl leading-8 text-gray-600">
-        Get early access and enjoy our platform for <span className='font-bold text-shamrock'>FREE for one month!</span>
+        Get early access and enjoy our loyalty program platform for <span className='font-bold text-shamrock'>FREE for one month!</span>
         </p>
       </div>
       
