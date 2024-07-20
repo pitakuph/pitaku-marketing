@@ -1,6 +1,6 @@
 import { Lexend, Rubik, Sora  } from 'next/font/google'
 import clsx from 'clsx'
-
+import Head from 'next/head'
 import '@/styles/tailwind.css'
 import { type Metadata } from 'next'
 
@@ -73,6 +73,9 @@ export default function RootLayout({
         sora.variable,
       )}
     >
+      <Head>
+        <meta name="google-site-verification" content="k3oSinnwQEGxwPybB_a2LnS8rf8gvvVegzJ3zCjICk4" />
+      </Head>
       <body className="flex h-full flex-col">{children}</body>
       <GoogleAnalytics gaId="G-9STR1P6QEC" />
     </html>

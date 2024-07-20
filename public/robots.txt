@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.pitaku.ph
+
+# Sitemaps
+Sitemap: https://www.pitaku.ph/sitemap.xml
