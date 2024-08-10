@@ -24,7 +24,7 @@ export default async function Page() {
         <h1 className='text-2xl sm:text-5xl font-semibold tracking-tight text-center text-shamrock'>
           Blog
         </h1>
-        <section className="max-w-7xl mx-auto mb-20 p-6 sm:px-24 sm:py-12 grid grid-cols-1 sm:grid-cols-3 gap-6">
+        <section className="max-w-7xl mx-auto mb-20 p-6 sm:px-24 sm:py-12 grid grid-cols-1 sm:grid-cols-2 gap-6">
         {items.map((post: any) => {
           return(
             <Link key={post.id} href={`/blogs/${post.slug}`}>
