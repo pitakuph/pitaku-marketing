@@ -29,10 +29,10 @@ export default async function Page() {
           return(
             <Link key={post.id} href={`/blogs/${post.slug}`}>
             <div  
-              className="w-full shadow-md border rounded-xl min-h-full bg-white border-gray-100 border-b-8 border-b-shamrock p-5 sm:p-10">
-              <article className={`${styles.container}`}>
+              className={`${styles.cards}`}>
+              <article>
                 <h1>{post?.title}</h1>
-                <section className='text-sm text-gray-500'>By: {post?.createdBy}</section>
+                {/* <section className='text-sm text-gray-500'>By: {post?.createdBy}</section> */}
                 <section className='mt-2' dangerouslySetInnerHTML={{ __html: post?.summary }} ></section>
               </article>
             </div>
