@@ -103,6 +103,7 @@ function MobileNavigation() {
             <MobileNavLink href="/#offers">Our Offers</MobileNavLink>
             <MobileNavLink href="/#features">Features</MobileNavLink>
             <MobileNavLink href="/#pricing">Pricing</MobileNavLink>
+            <MobileNavLink href="/blogs">Blog</MobileNavLink>
             <hr className="m-2 border-slate-300/40" />
 
             { pathname !== '/contact' &&
@@ -133,6 +134,7 @@ export function Header() {
               <NavLink href="/#offers">Our Offers</NavLink>
               <NavLink href="/#features">Features</NavLink>
               <NavLink href="/#pricing">Pricing</NavLink>
+              <NavLink href="/blogs">Blog</NavLink>
             </div>
           </div>
 
