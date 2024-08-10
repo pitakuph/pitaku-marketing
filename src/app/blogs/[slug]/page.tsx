@@ -4,6 +4,7 @@ import type { Metadata } from 'next'
 import { Header } from "@/components/Header"
 import { Footer } from "@/components/Footer"
 import { CallToAction } from "@/components/CallToAction"
+import OtherArticles from '@/components/blog/OtherArticles';
 
 import styles from '../../../components/blog/article.module.css';
 
@@ -39,10 +40,11 @@ export default async function Page({ params }: PostProps) {
           <div key={post.id} className="w-full">
             <article className={`${styles.container}`}>
               <h1>{post?.title}</h1>
-              <section>By: {post?.createdBy}</section>
-              <section dangerouslySetInnerHTML={{ __html: post.content }} ></section>
+              {/* <section className='text-sm text-gray-500'>By: {post?.createdBy}</section> */}
+              <section className='mt-2' dangerouslySetInnerHTML={{ __html: post.content }} ></section>
             </article>
           </div>
+          <OtherArticles currentID={post?.id} />
         </section>
         <CallToAction />
         <Footer />
