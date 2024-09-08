@@ -18,7 +18,7 @@ export function NavLink({
         value: `${children} - Navlink` 
       })}
       href={href}
-      className="inline-block rounded-lg px-2 py-1 text-lg font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-900"
+      className="inline-block rounded-lg px-2 py-1 text-lg font-medium text-slate-700 hover:bg-shamrock/10"
     >
       {children}
     </Link>

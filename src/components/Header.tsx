@@ -128,7 +128,7 @@ export function Header() {
           
           <div className="flex items-center md:gap-x-12">
             <Link href="/" aria-label="Home">
-              <Logo className="w-auto h-28 object-contain" />
+              <Logo className="w-auto h-20 object-contain" />
             </Link>
             <div className="hidden md:flex md:gap-x-6">
               <NavLink href="/#offers">Our Offers</NavLink>
