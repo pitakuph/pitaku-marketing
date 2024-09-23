@@ -166,7 +166,7 @@ export function Pricing() {
           <RevealOnScroll>
           <Plan
               featured
-              name="Premium Plan"
+              name="Monthly Premium Plan"
               price="PHP 1499"
               description="Good for businesses who needs to scale their business."
               href="/contact"
