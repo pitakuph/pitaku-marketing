@@ -103,6 +103,7 @@ function MobileNavigation() {
             <MobileNavLink href="/#offers">Our Offers</MobileNavLink>
             <MobileNavLink href="/#features">Features</MobileNavLink>
             <MobileNavLink href="/#pricing">Pricing</MobileNavLink>
+            <MobileNavLink href="/merchants">Merchants</MobileNavLink>
             <MobileNavLink href="/blogs">Blog</MobileNavLink>
             <hr className="m-2 border-slate-300/40" />
 
@@ -126,19 +127,20 @@ export function Header() {
       <Container>
         <nav className="relative z-50 flex justify-between">
           
-          <div className="flex items-center md:gap-x-12">
+          <div className="flex items-center lg:gap-x-12">
             <Link href="/" aria-label="Home">
               <Logo className="w-auto h-20 object-contain" />
             </Link>
-            <div className="hidden md:flex md:gap-x-6">
+            <div className="hidden lg:flex lg:gap-x-6">
               <NavLink href="/#offers">Our Offers</NavLink>
               <NavLink href="/#features">Features</NavLink>
               <NavLink href="/#pricing">Pricing</NavLink>
+              <NavLink href="/merchants">Merchants</NavLink>
               <NavLink href="/blogs">Blog</NavLink>
             </div>
           </div>
 
-          <div className="flex items-center gap-x-5 md:gap-x-8">
+          <div className="flex items-center gap-x-5 lg:gap-x-8">
             { pathname !== '/contact' ? 
               <Button 
                 href="/contact" 
@@ -172,7 +174,7 @@ export function Header() {
                 </span>
               </Button>              
             }
-            <div className="-mr-1 md:hidden">
+            <div className="-mr-1 lg:hidden">
               <MobileNavigation />
             </div>
           </div>

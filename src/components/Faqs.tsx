@@ -72,9 +72,8 @@ export default function Faqs() {
 
   return (
     <div className="bg-slate-50">
-      {/* <div className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8 lg:py-40"> */}
       <RevealOnScroll>      
-      <div className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
+      <div className="mx-auto max-w-7xl px-6 py-24 sm:px-24 sm:py-32 lg:px-8">
         <div className="mx-auto max-w-5xl divide-y divide-gray-900/10">
           <h2 className="text-3xl font-display font-bold leading-10  text-shamrock text-center">
             Frequently asked questions

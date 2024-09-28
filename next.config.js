@@ -10,7 +10,7 @@ const nextConfig = {
     API_BASE_URL: process.env.API_BASE_URL,
   },
   images: {
-      domains: ['localhost','pitaku-marketing-alpha.vercel.app'],
+      domains: ['localhost','pitaku-marketing-alpha.vercel.app', 'http://res.cloudinary.com/dwldvi7ox', 'res.cloudinary.com'],
       remotePatterns: [
         {
           protocol: 'https',
