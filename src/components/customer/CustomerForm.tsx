@@ -44,7 +44,6 @@ export default function ContactForm() {
   const [ errorMessage, setErrorMessage ] = useState<string | undefined>();
 
   const onSubmit: SubmitHandler<Customer> = async (formData: Customer) => {
-
     const customerPayload: Customer = {
       ...formData,
       email: formData.email || undefined,
