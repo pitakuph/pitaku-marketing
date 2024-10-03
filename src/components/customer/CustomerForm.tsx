@@ -102,6 +102,8 @@ export default function ContactForm() {
           break
       }
       setFormState('pending')
+      setAgreed(false)
+      setVerified(false)
       recaptchaRef.current?.reset()
     }
   }
@@ -117,10 +119,10 @@ export default function ContactForm() {
           },
           body: JSON.stringify({ token }),
         });
-        setVerified(true);
+        setVerified(true)
       }
     } catch (e) {
-      setVerified(false);
+      setVerified(false)
     }
   }
 
@@ -212,21 +214,23 @@ export default function ContactForm() {
             />
           </div>
         </div>
-        <div className="sm:col-span-2">
-          <div className="flex mt-8 items-center justify-center">
-            <ReCAPTCHA
-              sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ''}
-              ref={recaptchaRef}
-              onChange={handleChange}
-              onExpired={() => setVerified(false)}
-            />
+        {agreed && (
+          <div className="sm:col-span-2">
+            <div className="flex mt-8 items-center justify-center">
+              <ReCAPTCHA
+                sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ''}
+                ref={recaptchaRef}
+                onChange={handleChange}
+                onExpired={() => setVerified(false)}
+              />
+            </div>
           </div>
-        </div>
+        )}
         <div className="mt-10">
           <Button
             type="submit"
             color="green"
-            disabled={!agreed && !verified}
+            disabled={!agreed || !verified}
             className={`
               ${
                 agreed && verified
