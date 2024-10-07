@@ -1,13 +1,13 @@
 'use client'
 
 import { SubmitHandler, useForm } from 'react-hook-form'
-import { Button } from '../Button'
 import ReCAPTCHA from 'react-google-recaptcha'
 import { AGE_RANGE, MONTHS, REWARD_TYPES } from './constants'
 import { useRef, useState } from 'react'
 import axios, { AxiosResponse } from 'axios'
 import { sendGAEventCustom } from '@/utils/Helper'
 
+import { Button } from '../Button'
 import Welcome from './components/Welcome'
 import PrivacyPolicy from './components/PrivacyPolicy'
 import ComboField from './components/ComboField'
