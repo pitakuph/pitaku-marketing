@@ -5,7 +5,7 @@ export default function Welcome() {
         Welcome to <span className="font-bold text-shamrock">Pitaku!</span>
       </h2>
       <p className="mt-2 text-xl leading-8 text-gray-600">
-        Are you ready to enjoy the benefits of Pitaku loyalty program? {''}
+        Are you ready to enjoy the benefits of Pitaku loyalty program? {' '}
         <span className="font-bold text-shamrock">Sign up NOW!</span>
       </p>
     </div>
