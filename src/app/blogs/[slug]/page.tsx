@@ -5,6 +5,7 @@ import { Header } from "@/components/Header"
 import { Footer } from "@/components/Footer"
 import { CallToAction } from "@/components/CallToAction"
 import OtherArticles from '@/components/blog/OtherArticles';
+import { getBlog } from '@/server/blog/blog';
 
 import styles from '../../../components/blog/article.module.css';
 
@@ -25,9 +26,18 @@ export async function generateMetadata(
   }
 }
 
+async function BlogLoader(slug: string) {
+  const blogpost = await getBlog(slug);
+  return blogpost;
+}
+
 export default async function Page({ params }: PostProps) {
-  const res = await fetch(`${process.env.API_BASE_URL || 'https://api.pitaku.ph'}/v1/posts/${params.slug}`);
-  const post = await res.json();
+  const [ 
+    post,
+  ] = await Promise.all([
+    BlogLoader(params?.slug),
+  ]);
+
   return (
     <div>
       <Head>
