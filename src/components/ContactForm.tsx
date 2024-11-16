@@ -319,6 +319,7 @@ export default function ContactForm() {
             </label>
             <div className="mt-2.5">
               <ComboBox 
+                fieldId='business_category'
                 options={categories} 
                 setOption={(option:any)=>{
                   console.log("option", option);

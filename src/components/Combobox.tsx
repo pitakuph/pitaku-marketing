@@ -5,16 +5,18 @@ import { useState } from 'react'
 
 
 type Props = {
+    required?: boolean;
     options: any;
     setOption: (option:any)=>void;
     register: any;
+    fieldId: string;
 }
 
 function classNames(...classes:any) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function ComboBox({options, setOption, register}:Props) {
+export default function ComboBox({options, setOption, register, fieldId, required = true }: Props) {
   const [query, setQuery] = useState('')
   const [selectedOption, setSelectedOption] = useState(null)
 
@@ -42,8 +44,8 @@ export default function ComboBox({options, setOption, register}:Props) {
           onChange={(event) => setQuery(event.target.value)}
           onBlur={() => setQuery('')}
           displayValue={(option:any) => option?.name}
-          {...register("business_category", 
-            { required: true }
+          {...register(fieldId,
+            { required }
           )}
         />
         <ComboboxButton className="absolute inset-y-0 right-0 flex items-center rounded-r-md px-2 focus:outline-none">
