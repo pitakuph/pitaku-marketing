@@ -4,11 +4,9 @@ import Link from 'next/link'
 
 import { Header } from "@/components/Header"
 import { Footer } from "@/components/Footer"
-import { CallToAction } from "@/components/CallToAction"
 import { type Metadata } from 'next'
-import Image from 'next/image';
 import * as cheerio from 'cheerio';
-
+import { getAllBlogs } from '@/server/blog/blog';
 
 import styles from './../../components/blog/article.module.css';
 
@@ -18,12 +16,20 @@ export const metadata: Metadata = {
 }
 
 
+async function allBlogsLoader() {
+  const allBlogs = await getAllBlogs();
+  return allBlogs?.items;
+}
+
 export default async function Page() {
-  const res = await fetch(`${process.env.API_BASE_URL || 'https://api.pitaku.ph'}/posts/published`);
-  const { items } = await res.json();
+  const [ 
+    allBlogs,
+  ] = await Promise.all([
+    allBlogsLoader(),
+  ]);
 
   // Process all posts to extract the desired content
-  const processedPosts = items.map((post:any) => {
+  const processedPosts = allBlogs?.map((post:any) => {
     const content = post.content || '';
 
     // Use Cheerio to extract content up to the first non-empty paragraph (WIP)
@@ -61,7 +67,7 @@ export default async function Page() {
               <article>
                 <h1>{post?.title}</h1>
                 <section className='text-sm text-gray-500'>By: {post?.createdBy}</section>
-                {/* <section className='mt-2' dangerouslySetInnerHTML={{ __html: post?.processedContent  }} ></section> */}
+                <section className='mt-2 rounded-2xl overflow-hidden' dangerouslySetInnerHTML={{ __html: post?.processedContent  }} ></section>
                 <section className='mt-2' dangerouslySetInnerHTML={{ __html: post?.summary }} ></section>
               </article>
             </div>
@@ -69,7 +75,6 @@ export default async function Page() {
           )
         })}
         </section>
-        {/* <CallToAction /> */}
         <Footer />
       </div>
     </div>
