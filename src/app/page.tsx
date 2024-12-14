@@ -26,8 +26,8 @@ export default function Home() {
     sendGAEventCustom({ 
       action: 'click', 
       category: 'Button',
-      label: 'Watch how Pitaku works - Hero',
-      value: 'Watch how Pitaku works - Hero' 
+      label: 'Watch how Pitaku works',
+      value: 'Watch how Pitaku works' 
     })    
   }
 
@@ -47,7 +47,7 @@ export default function Home() {
         {/* <SecondaryFeatures /> */}
         {/* <Features /> */}
         <Features2 />
-        <Pricing />
+        {/* <Pricing /> */}
         <Faqs />
         <CallToAction />
         {/* <Testimonials /> */}
