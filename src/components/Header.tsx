@@ -1,6 +1,6 @@
 'use client'
 
-import { Fragment } from 'react'
+import { Fragment, useEffect, useState } from 'react'
 import Link from 'next/link'
 import { Popover, Transition } from '@headlessui/react'
 import clsx from 'clsx'
@@ -41,7 +41,7 @@ function MobileNavIcon({ open }: { open: boolean }) {
   return (
     <svg
       aria-hidden="true"
-      className="h-3.5 w-3.5 overflow-visible stroke-slate-700"
+      className="h-3.5 w-3.5 overflow-visible stroke-shamrock"
       fill="none"
       strokeWidth={2}
       strokeLinecap="round"
@@ -100,14 +100,14 @@ function MobileNavigation() {
             as="div"
             className="absolute inset-x-0 top-full mt-4 flex origin-top flex-col rounded-2xl bg-white p-4 text-lg tracking-tight text-slate-900 shadow-xl ring-1 ring-slate-900/5"
           >
-            <MobileNavLink href="/#offers">Our Offers</MobileNavLink>
+            {/* <MobileNavLink href="/#offers">Our Offers</MobileNavLink>
             <MobileNavLink href="/#features">Features</MobileNavLink>
             <MobileNavLink href="/#pricing">Pricing</MobileNavLink>
             <MobileNavLink href="/blogs">Blog</MobileNavLink>
-            <hr className="m-2 border-slate-300/40" />
+            <hr className="m-2 border-slate-300/40" /> */}
 
             { pathname !== '/contact' &&
-              <MobileNavLink href="/contact">Get early access</MobileNavLink>
+              <MobileNavLink href="/contact">Free Sign Up</MobileNavLink>
             }
 
           </Popover.Panel>
@@ -120,22 +120,32 @@ function MobileNavigation() {
 export function Header() {
   
   const pathname = usePathname();
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 0);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);  
 
   return (
-    <header className="pt-4 pb-10">
+    <header className={`
+      ${pathname === '/'? 'fixed' : 'relative'} 
+      ${scrolled ? "shadow bg-white/50 backdrop-blur-xl" : "bg-none backdrop-blur-0"}
+      py-3 w-full z-50 transition-all ease-out duration-700`
+      }>
       <Container>
         <nav className="relative z-50 flex justify-between">
           
           <div className="flex items-center lg:gap-x-12">
             <Link href="/" aria-label="Home">
-              <Logo className="w-auto h-20 object-contain" />
+              <Logo logotype='logomark' className="w-auto h-12 sm:h-16 object-contain" />
             </Link>
-            <div className="hidden lg:flex lg:gap-x-6">
-              <NavLink href="/#offers">Our Offers</NavLink>
-              <NavLink href="/#features">Features</NavLink>
-              <NavLink href="/#pricing">Pricing</NavLink>
-              <NavLink href="/blogs">Blog</NavLink>
-            </div>
           </div>
 
           <div className="flex items-center gap-x-5 lg:gap-x-8">
@@ -147,12 +157,12 @@ export function Header() {
                 onClick={()=>sendGAEventCustom({ 
                   action: 'click', 
                   category: 'Button',
-                  label: 'Get early access - Header',
-                  value: 'Get early access - Header' 
+                  label: 'Free Sign Up',
+                  value: 'Free Sign Up' 
                 })}
                 >
-                <span>
-                  Get early access
+                <span className='px-4 font-normal text-xl text-white '>
+                  Free Sign Up
                 </span>
               </Button>
               :

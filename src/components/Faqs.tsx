@@ -23,22 +23,36 @@ const faqs = [
   //   answer:
   //     "Yes, our loyalty program solutions are highly customizable, allowing you to tailor the program to fit the unique needs and preferences of your business and customers. From branding and design to rewards and incentives, we work closely with you to create a program that aligns with your goals and objectives.",
   // },
-  
   {
-    question: "What features does your loyalty program offer?",
+    question: "What is Pitaku Rewards?",
     answer:
-      "Our loyalty program will include features such as points-based rewards, tiered membership levels, customizable rewards, customer referral programs, real-time analytics and reporting, and automated customer engagement through email and SMS.",
-  },
+      "Pitaku Rewards is an online platform for creating and managing digital loyalty programs for small businesses.",
+  },  
+  // {
+  //   question: "What features does your loyalty program offer?",
+  //   answer:
+  //     "Our loyalty program will include features such as points-based rewards, tiered membership levels, customizable rewards, customer referral programs, real-time analytics and reporting, and automated customer engagement through email and SMS.",
+  // },
   {
     question: "How easy is it to set up the loyalty program?",
     answer:
-      "Setting up our loyalty program is straightforward and user-friendly. We provide step-by-step guides and video tutorials to help you get started. Additionally, our support team is available to assist you through the setup process to ensure everything runs smoothly.",
-  },  
+      "Setting up our loyalty program is straightforward and user-friendly. We provide step-by-step guides to help you get started. Additionally, our support team is available to assist you through the setup process to ensure everything runs smoothly.",
+  }, 
   {
-    question: "How do I track the performance of my loyalty program?",
+    question: "What are the rewards I can give to my customers?",
     answer:
-      "Our platform provides comprehensive real-time analytics and reporting tools. You can track key metrics such as customer engagement, reward redemption rates, program ROI, and customer retention. These insights help you understand the effectiveness of your loyalty program and make data-driven decisions.",
+      "You can offer discounts, cashback, free products, exclusive deals, that customers can redeem for rewards.",
+  },
+  {
+    question: "What device do I need to use the platform?",
+    answer:
+      "You can use Pitaku Rewards on any device with an internet connection, such as a smartphone, tablet, or laptop.",
   },      
+  // {
+  //   question: "How do I track the performance of my loyalty program?",
+  //   answer:
+  //     "Our platform provides comprehensive real-time analytics and reporting tools. You can track key metrics such as customer engagement, reward redemption rates, program ROI, and customer retention. These insights help you understand the effectiveness of your loyalty program and make data-driven decisions.",
+  // },      
 
   // More questions...
 ]
@@ -71,13 +85,12 @@ export default function Faqs() {
   };  
 
   return (
-    <div className="bg-slate-50">
-      {/* <div className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8 lg:py-40"> */}
+    <div>
       <RevealOnScroll>      
-      <div className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
+      <div className="mx-auto max-w-7xl px-6 pt-24 pb-32 lg:px-8">
         <div className="mx-auto max-w-5xl divide-y divide-gray-900/10">
-          <h2 className="text-3xl font-display font-bold leading-10  text-shamrock text-center">
-            Frequently asked questions
+          <h2 className="text-2xl font-sans font-semibold leading-10 tracking-tight sm:text-4xl  text-dark-green text-center">
+            Frequently Asked Questions
           </h2>
           <dl className="mt-10 space-y-10 divide-y divide-gray-900/10">
             {faqs.map((faq, index) => (

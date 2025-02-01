@@ -8,24 +8,24 @@ import { GoogleAnalytics } from '@next/third-parties/google'
 
 export const metadata: Metadata = {
   title: {
-    template: '%s - Pitaku PH',
-    default: 'Pitaku PH',
+    template: '%s - Pitaku Rewards',
+    default: 'Pitaku Rewards',
   },
-  description: 'Pitaku PH - Powerful solution for customer engagement and life time value',
+  description: 'Pitaku Rewards - Create rewards for your loyal customers.',
   openGraph: {
     url: 'https://www.pitaku.ph',
-    title: 'Pitaku PH',
+    title: 'Pitaku Rewards',
     description:
-      'Pitaku PH - Powerful solution for customer engagement and life time value',
+      'Pitaku Rewards - Create rewards for your loyal customers.',
     images: [
       {
-        url: '/articles/boosting-customer-retention-for-your-small-business.jpg',
+        url: '/images/pitaku-rewards.jpg',
         width: 1600,
         height: 914,
-        alt: 'Pitaku PH - Powerful solution for customer engagement and life time value',
+        alt: 'Pitaku Rewards - Create rewards for your loyal customers.',
       },
     ],
-    siteName: 'Pitaku PH',
+    siteName: 'Pitaku Rewards',
   },   
 }
 
@@ -68,7 +68,7 @@ export default function RootLayout({
     <html
       lang="en"
       className={clsx(
-        'h-full scroll-smooth bg-dot-pattern bg-repeat antialiased',
+        'h-full scroll-smooth bg-white bg-repeat antialiased',
         lexend.variable,
         sora.variable,
       )}

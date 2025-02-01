@@ -13,7 +13,7 @@ const YouTubePlayer = ({ videoId }:Props) => {
     // height: '480',
     playerVars: {
       // https://developers.google.com/youtube/player_parameters
-      autoplay: 1,
+      // autoplay: 1,
     },
   };
 
@@ -21,8 +21,9 @@ const YouTubePlayer = ({ videoId }:Props) => {
     <YouTube 
       videoId={videoId} 
       opts={opts} 
-      className="w-full h-full min-h-screen sm:min-h-[360px] my-10 sm:my-20" 
-      iframeClassName="w-full h-full min-h-screen sm:min-h-[360px]" />
+      className="w-full h-[310px] max-w-4xl sm:min-h-[504px] mt-10" 
+      iframeClassName="w-full h-[310px] max-w-4xl sm:min-h-[504px]" 
+      />
 )
 };
 

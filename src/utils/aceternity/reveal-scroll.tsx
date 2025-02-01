@@ -5,7 +5,7 @@ import { useInView } from 'react-intersection-observer';
 const RevealOnScroll = ({ children }:any) => {
   const controls = useAnimation();
   const [ref, inView] = useInView({
-    threshold: 0.5,
+    threshold: 0.25,
     triggerOnce: true,
   });
 
@@ -22,9 +22,9 @@ const RevealOnScroll = ({ children }:any) => {
       animate={controls}
       variants={{
         visible: { opacity: 1, y: 0 },
-        hidden: { opacity: 0, y: 100 },
+        hidden: { opacity: 0, y: 30 },
       }}
-      transition={{ duration: 0.5, ease: 'easeOut' }}
+      transition={{ duration: 0.65, ease: 'easeOut' }}
     >
       {children}
     </motion.div>
