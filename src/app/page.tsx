@@ -14,6 +14,7 @@ import Faqs from '@/components/Faqs'
 import Features from '@/components/Features'
 import Features2 from '@/components/Features2'
 import VideoDialog from '@/components/VideoDialog'
+import Goal from '@/components/Goal'
 
 import { sendGAEventCustom } from '@/utils/Helper'
 
@@ -32,27 +33,26 @@ export default function Home() {
   }
 
   return (
-    <>
-      <Header />
+    <div className='bg-[#fcfcef]'>
       <main>
-        <Hero 
-          onWatchClick={onWatchClick}
-          />
-        <VideoDialog 
+        <Header />
+        <Hero />
+        <Goal />
+        {/* <VideoDialog 
           isOpen={isOpen} 
           setIsOpen={setIsOpen}
-          />
-        <Offers />
-        {/* <PrimaryFeatures /> */}
+          /> */}
+        {/* <Offers /> */}
+        <PrimaryFeatures />
         {/* <SecondaryFeatures /> */}
         {/* <Features /> */}
-        <Features2 />
+        {/* <Features2 /> */}
         {/* <Pricing /> */}
         <Faqs />
         <CallToAction />
         {/* <Testimonials /> */}
       </main>
       <Footer />
-    </>
+    </div>
   )
 }

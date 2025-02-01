@@ -4,10 +4,10 @@ import ContactForm from "@/components/ContactForm"
 import { type Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Get early access',
-  description: 'Get early access and enjoy the Pitaku loyalty program free for one month!',
+  description: 'Get early access and enjoy the Pitaku loyalty program for free!',
   openGraph: {
     title: 'Get early access - Pitaku PH',
-    description: 'Get early access and enjoy the Pitaku loyalty program free for one month!',
+    description: 'Get early access and enjoy the Pitaku loyalty program for free!',
     images: [
       {
         url: '/images/wall4.jpg',

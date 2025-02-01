@@ -8,13 +8,14 @@ import logoStatamic from '@/images/logos/statamic.svg'
 import logoStaticKit from '@/images/logos/statickit.svg'
 import logoTransistor from '@/images/logos/transistor.svg'
 import logoTuple from '@/images/logos/tuple.svg'
+import heroImage from '@/images/hero.jpg'
 
 import { TextGenerateEffect } from '@/utils/aceternity/text-generate-effect'
 import { sendGAEventCustom } from '@/utils/Helper'
 
 
 type Props = {
-  onWatchClick: () => void
+  onWatchClick?: () => void
 }
 
 export function Hero({
@@ -22,55 +23,33 @@ export function Hero({
 }:Props) {
   
   return (
-    <Container className="pb-16 pt-20 text-center lg:pt-24">
-      {/* <h1 className="mx-auto max-w-4xl font-display text-5xl font-medium tracking-tight text-gray-900 sm:text-7xl">
-        Powerful solution for{' '}
-        <span className="relative whitespace-nowrap text-shamrock">
-          <span className="relative font-semibold whitespace-normal">customer engagement</span>
-        </span>{' '}
-        and life time value.
+    <div className='relative w-full h-auto pb-10 sm:h-[960px] bg-dark-green'>
+    <Image className='w-full h-[240px] sm:h-full max-w-[1920px] absolute object-cover object-center z-0 top-0 left-[50%] translate-x-[-50%]' src={heroImage} alt='create-rewards' unoptimized />
+    <Container className="z-10 relative pt-[260px] flex flex-col">
+      <h1 className="order-2 mt-4 font-sans text-4xl font-semibold text-center sm:text-left text-white sm:text-7xl max-w-xl lg:max-w-2xl xl:max-w-3xl leading-tight tracking-tight p-4 sm:p-0">        
+        <TextGenerateEffect words={'Create rewards for your loyal customers.'}/>
       </h1>
-      <p className="mx-auto mt-6 max-w-2xl text-lg tracking-tight text-gray-700 p-4 sm:p-0">
-        Our comprehensive loyalty program solution empowers businesses in retail, lifestyle, travel, and food industries to do just that, elevating customer engagement and fueling sustainable growth.
-      </p> */}
-      <h1 className="sm:mt-10 mx-auto max-w-4xl font-display text-4xl font-medium tracking-tight text-gray-900 sm:text-7xl">
-        <span className="relative whitespace-nowrap text-shamrock">
-          {/* <span className="relative font-semibold whitespace-normal">Engage customers</span>           */}
-            <TextGenerateEffect words={'Engage customers'} className='font-semibold whitespace-normal relative text-shamrock' />
-        </span>{' '}
-        {/* and boost lifetime value! */}
-        <TextGenerateEffect words={'and boost lifetime value!'} delay={500}/>
-      </h1>
-      <p className="mx-auto mt-6 max-w-2xl text-xl text-gray-700 p-4 sm:p-0">
-        Our loyalty program is perfect for businesses in retail, lifestyle, travel, and food industries, our platform helps you build deeper connections and drive sustainable growth.
+      <p className='order-1 w-64 mx-auto sm:mx-0 text-center rounded-xl p-4 sm:p-1 bg-dark-green text-white'>Pitaku Rewards Platform</p>
+      <p className="order-3 mt-6 max-w-2xl text-xl text-center sm:text-left text-white p-4 sm:p-0">
+        Our user-friendly platform makes creating and integrating rewards simple and effective.
       </p>
 
-      <div className="mt-20 flex flex-col sm:flex-row justify-center items-center gap-6">
-        <Button 
-          href="/contact" 
-          color='green'
-          onClick={()=>sendGAEventCustom({ 
-            action: 'click', 
-            category: 'Button',
-            label: 'Get early access - Hero',
-            value: 'Get early access - Hero' 
-          })}
-          >
-            Get early access
-        </Button>
-        <Button
-          variant="solid"
-          onClick={onWatchClick}
+      <Button 
+        href="/contact" 
+        color="green" 
+        className='order-4 mt-10 self-center sm:self-start ml-4 sm:ml-0'
+        onClick={()=>sendGAEventCustom({ 
+          action: 'click', 
+          category: 'Button',
+          label: 'Try It Free - Hero',
+          value: 'Try It Free - Hero' 
+        })}
         >
-          <svg
-            aria-hidden="true"
-            className="h-3 w-3 flex-none fill-shamrock group-active:fill-current"
-          >
-            <path d="m9.997 6.91-7.583 3.447A1 1 0 0 1 1 9.447V2.553a1 1 0 0 1 1.414-.91L9.997 5.09c.782.355.782 1.465 0 1.82Z" />
-          </svg>
-          <span className="ml-3 font-medium">Watch how Pitaku works</span>
-        </Button>
-      </div>
+        <span className='px-4 font-normal text-xl text-white '>
+          Try It Free
+        </span>
+      </Button>
+
         
       {/* PARTNER MERCHANTS
       <div className="mt-24 lg:mt-28">
@@ -109,5 +88,6 @@ export function Hero({
         </ul>
       </div> */}
     </Container>
+    </div>
   )
 }

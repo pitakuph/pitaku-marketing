@@ -40,7 +40,8 @@ export default {
         '2xl': '40rem',
       },
       colors: {
-        'shamrock' : '#068E10'
+        'shamrock' : '#068E10',
+        'dark-green' : '#1c2a10',
       },
       backgroundImage: {
         'dot-pattern': "url('../images/dot.png')",
