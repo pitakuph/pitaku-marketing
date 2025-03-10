@@ -20,8 +20,6 @@ type Props = {
 
 type Inputs = {
   full_name: string;
-  // first_name: string;
-  // last_name: string;
   // company: string;
   email: string;
   // business_category: string;
@@ -206,15 +204,6 @@ export default function ContactForm({variant}:Props) {
   return (
     <div className="px-6 py-6 sm:py-12 lg:px-8 relative">
 
-      {/* <div className="mx-auto text-center">
-        <h2 className="text-3xl font-bold font-display tracking-tight text-gray-900 sm:text-4xl">
-            Welcome to <span className='font-bold text-shamrock'>Pitaku!</span>
-        </h2>
-        <p className="mt-2 text-xl leading-8 text-gray-600">
-        Get early access and enjoy our loyalty program platform for <span className='font-bold text-shamrock'>FREE!</span>
-        </p>
-      </div> */}
-
       { 
       submitted ? 
       <div className="relative mx-auto max-w-2xl text-center my-14 sm:p-6">
@@ -275,47 +264,6 @@ export default function ContactForm({variant}:Props) {
             </div>
           </div>
 
-          {/* <div>
-            <label htmlFor="first_name" className="block text-sm font-medium  text-gray-900">
-              First name
-            </label>
-            <div className="mt-2.5">
-              <input
-                type="text"
-                id="first_name"
-                className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-shamrock sm:text-sm sm:"
-                {...register("first_name", 
-                    { required: true }
-                )}
-              />
-              {errors.first_name && 
-                <span className='text-red-500 text-sm'>
-                  Please provide your first name.
-                </span>
-              }
-            </div>
-          </div> */}
-          {/* <div>
-            <label htmlFor="last_name" className="block text-sm font-medium  text-gray-900">
-              Last name
-            </label>
-            <div className="mt-2.5">
-              <input
-                type="text"
-                id="last_name"
-                autoComplete="family-name"
-                className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-shamrock sm:text-sm sm:"
-                {...register("last_name", 
-                  { required: true }
-                )}
-              />
-              {errors.last_name && 
-                <span className='text-red-500 text-sm'>
-                  Please provide your last name.
-                </span>
-              }              
-            </div>
-          </div> */}
           {/* <div className="sm:col-span-2">
             <label htmlFor="company" className="block text-sm font-medium  text-gray-900">
               Company <span className='text-gray-400'>(optional)</span>
@@ -331,6 +279,7 @@ export default function ContactForm({variant}:Props) {
               />
             </div>
           </div> */}
+
           <div className="sm:col-span-2">
             <label htmlFor="email" className="block text-sm font-medium  text-gray-900">
               Email
@@ -353,6 +302,7 @@ export default function ContactForm({variant}:Props) {
               } 
             </div>
           </div>
+          
           {/* <div className="sm:col-span-2">
             <label htmlFor="industry" className="block text-sm font-medium  text-gray-900">
               Business Category
