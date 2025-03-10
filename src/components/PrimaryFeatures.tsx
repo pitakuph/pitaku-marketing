@@ -22,19 +22,8 @@ const features = [
     description:
       "Easily create and customize digital loyalty rewards, track redemptions, and keep your customers engaged.",
     image: screenshotRewards,
+    badge: "",
   },
-  {
-    title: 'Real-time Sales Tracker',
-    description:
-      "Monitor daily transactions and performance at a glance.",
-    image: screenshotSalesTracker,
-  },
-  // {
-  //   title: 'VAT handling',
-  //   description:
-  //     "We only sell our software to companies who don't deal with VAT at all, so technically we do all the VAT stuff they need.",
-  //   image: screenshotVatReturns,
-  // },
   // {
   //   title: 'Reporting',
   //   description:
@@ -46,7 +35,16 @@ const features = [
     description:
       'Access your rewards program seamlessly on mobile, tablet, or laptop—manage your loyalty programs on the go, wherever you are.',
     image: screenshotDevices,
+    badge: "",
   },  
+  {
+    title: 'Real-time Sales Tracker',
+    description:
+      "Monitor daily transactions and performance at a glance.",
+    image: screenshotSalesTracker,
+    badge: "premium",
+  },
+
 ]
 
 export function PrimaryFeatures() {
@@ -122,7 +120,12 @@ export function PrimaryFeatures() {
                           )}
                         >
                           <span className="absolute inset-0 rounded-full lg:rounded-l-xl lg:rounded-r-none" />
-                          {feature.title}
+                            {feature.title} 
+                            {feature?.badge &&
+                              <span className="uppercase font-bold ml-2 text-xs rounded-full px-5 py-0.5 bg-green-500">
+                                {feature?.badge}
+                              </span>
+                            }
                         </Tab>
                       </h3>
                       <p

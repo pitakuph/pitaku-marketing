@@ -4,21 +4,27 @@ import { useState } from 'react'
 // import { Button } from './Button';
 import { Field, Label, Switch } from '@headlessui/react'
 import { SubmitHandler, useForm } from 'react-hook-form';
-import ComboBox from './Combobox';
+// import ComboBox from './Combobox';
 import { Button } from '@/components/Button'
 import { sendGAEventCustom } from "@/utils/Helper";
-
-
 import axios from 'axios';
 import { companyEmailMarketing, titleEmailMarketing } from '@/utils/Constant';
 
+import GrowYourBusinessContent from './contact/GrowYourBusinessContent';
+import BeTheHeroContent from './contact/BeTheHeroContent';
+
+type Props = {
+  variant: string;
+}
+
+
 type Inputs = {
-  first_name: string;
-  last_name: string;
-  company: string;
+  full_name: string;
+  // company: string;
   email: string;
-  business_category: string;
+  // business_category: string;
   contact: string;
+  message_inquiry: string;
 }
 
 /**
@@ -102,7 +108,7 @@ function classNames(...classes:any) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function ContactForm() {
+export default function ContactForm({variant}:Props) {
 
   const {
     register,
@@ -137,10 +143,11 @@ export default function ContactForm() {
       </head>
       <body>
           <h2>Merchant Information</h2>
-          <p><strong>Name:</strong><br> ${data?.first_name} ${data?.last_name}</p>
-          <p><strong>Company:</strong><br> ${data?.company}</p>
+          <p><strong>Name:</strong><br> ${data?.full_name}</p>
           <p><strong>Email:</strong><br> ${data?.email}</p>
-          <p><strong>Business Category:</strong><br> ${data?.business_category}</p>
+          <p><strong>Contact:</strong><br> ${data?.contact}</p>
+          <p><strong>Message:</strong><br> ${data?.message_inquiry}</p>
+          <p><strong>Variant:</strong><br> ${variant}</p>
       </body>
       </html>    
     `
@@ -196,18 +203,10 @@ export default function ContactForm() {
 
   return (
     <div className="px-6 py-6 sm:py-12 lg:px-8 relative">
-      <div className="mx-auto text-center">
-        <h2 className="text-3xl font-bold font-display tracking-tight text-gray-900 sm:text-4xl">
-            Welcome to <span className='font-bold text-shamrock'>Pitaku!</span>
-        </h2>
-        <p className="mt-2 text-xl leading-8 text-gray-600">
-        Get early access and enjoy our loyalty program platform for <span className='font-bold text-shamrock'>FREE!</span>
-        </p>
-      </div>
-      
+
       { 
       submitted ? 
-      <div className="relative mx-auto max-w-2xl text-center my-14 sm:p-6 bg-white/50 rounded-xl">
+      <div className="relative mx-auto max-w-2xl text-center my-14 sm:p-6">
         <h1 className='text-3xl font-display font-bold text-shamrock'>
           Thank you for signing up to our loyalty program platform! 
         </h1>
@@ -231,53 +230,41 @@ export default function ContactForm() {
           </Button>
       </div>
       :
+      <>
+      {variant === "A" ?
+      <GrowYourBusinessContent />
+      :
+      <BeTheHeroContent />
+      }
       <form 
         className="relative mx-auto my-16 max-w-4xl "
         onSubmit={handleSubmit(onSubmit)}
         >
         <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
-          <div>
-            <label htmlFor="first_name" className="block text-sm font-medium  text-gray-900">
-              First name
+
+          <div className="sm:col-span-2">
+            <label htmlFor="full_name" className="block text-sm font-medium  text-gray-900">
+              Full Name
             </label>
             <div className="mt-2.5">
               <input
                 type="text"
-                id="first_name"
+                id="full_name"
+                placeholder='Your name'
                 className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-shamrock sm:text-sm sm:"
-                {...register("first_name", 
+                {...register("full_name", 
                     { required: true }
                 )}
               />
-              {errors.first_name && 
+              {errors.full_name && 
                 <span className='text-red-500 text-sm'>
-                  Please provide your first name.
+                  Please provide your full name.
                 </span>
               }
             </div>
           </div>
-          <div>
-            <label htmlFor="last_name" className="block text-sm font-medium  text-gray-900">
-              Last name
-            </label>
-            <div className="mt-2.5">
-              <input
-                type="text"
-                id="last_name"
-                autoComplete="family-name"
-                className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-shamrock sm:text-sm sm:"
-                {...register("last_name", 
-                  { required: true }
-                )}
-              />
-              {errors.last_name && 
-                <span className='text-red-500 text-sm'>
-                  Please provide your last name.
-                </span>
-              }              
-            </div>
-          </div>
-          <div className="sm:col-span-2">
+
+          {/* <div className="sm:col-span-2">
             <label htmlFor="company" className="block text-sm font-medium  text-gray-900">
               Company <span className='text-gray-400'>(optional)</span>
             </label>
@@ -291,7 +278,8 @@ export default function ContactForm() {
                 )}
               />
             </div>
-          </div>
+          </div> */}
+
           <div className="sm:col-span-2">
             <label htmlFor="email" className="block text-sm font-medium  text-gray-900">
               Email
@@ -301,6 +289,7 @@ export default function ContactForm() {
                 type="email"
                 id="email"
                 autoComplete="email"
+                placeholder='Your email'
                 className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-shamrock sm:text-sm sm:"
                 {...register("email", 
                   { required: true }
@@ -313,7 +302,8 @@ export default function ContactForm() {
               } 
             </div>
           </div>
-          <div className="sm:col-span-2">
+          
+          {/* <div className="sm:col-span-2">
             <label htmlFor="industry" className="block text-sm font-medium  text-gray-900">
               Business Category
             </label>
@@ -332,37 +322,47 @@ export default function ContactForm() {
                 </span>
               }
             </div>
-          </div>  
+          </div>   */}
 
-          {/* <div className="sm:col-span-2">
-            <label htmlFor="phone-number" className="block text-sm font-medium  text-gray-900">
-              Contact number
+          <div className="sm:col-span-2">
+            <label htmlFor="contact" className="block text-sm font-medium  text-gray-900">
+              Mobile/Contact number
             </label>
             <div className="relative mt-2.5">
               <input
                 type="tel"
-                name="phone-number"
-                id="phone-number"
+                id="contact"
                 autoComplete="tel"
+                placeholder='Your mobile/contact number'
+                maxLength={11}
+                {...register("contact", 
+                  { required: true }
+                )}                
                 className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-shamrock sm:text-sm sm:"
               />
+              {errors.contact && 
+                <span className='text-red-500 text-sm'>
+                  Please provide your contact information.
+                </span>
+              }               
             </div>
-          </div> */}
+          </div>
 
-          {/* <div className="sm:col-span-2">
-            <label htmlFor="message" className="block text-sm font-medium  text-gray-900">
-              Message
+          <div className="sm:col-span-2">
+            <label htmlFor="message_inquiry" className="block text-sm font-medium  text-gray-900">
+              Send us your message
             </label>
             <div className="mt-2.5">
               <textarea
-                name="message"
-                id="message"
+                id="message_inquiry"
                 rows={4}
+                placeholder='How can we help?'
+                {...register("message_inquiry")}
                 className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-shamrock sm:text-sm sm:"
                 defaultValue={''}
               />
             </div>
-          </div> */}
+          </div>
 
           <div className='flex flex-row items-center gap-2'>
               <Field as="div" className="flex gap-x-4 sm:col-span-2">
@@ -410,6 +410,7 @@ export default function ContactForm() {
             </Button>
         </div>
       </form>
+      </>
       }
     </div>
   )

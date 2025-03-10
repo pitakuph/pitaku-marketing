@@ -110,6 +110,10 @@ function MobileNavigation() {
               <MobileNavLink href="/contact">Free Sign Up</MobileNavLink>
             }
 
+            { pathname === '/contact' &&
+              <MobileNavLink href="/">Learn More</MobileNavLink>
+            }            
+
           </Popover.Panel>
         </Transition.Child>
       </Transition.Root>
@@ -135,9 +139,9 @@ export function Header() {
 
   return (
     <header className={`
-      ${pathname === '/'? 'fixed' : 'relative'} 
-      ${scrolled ? "shadow bg-white/50 backdrop-blur-xl" : "bg-none backdrop-blur-0"}
-      py-3 w-full z-50 transition-all ease-out duration-700`
+      ${pathname === '/' ? 'fixed' : 'relative'} 
+      ${(scrolled && pathname === '/') ? "shadow-xl bg-[#fcfcef]" : "bg-none backdrop-blur-0"}
+      py-3 w-full z-50 transition-all ease-out duration-200`
       }>
       <Container>
         <nav className="relative z-50 flex justify-between">

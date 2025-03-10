@@ -26,12 +26,13 @@ export default function PrivacyPolicy() {
                 <h2 className="text-lg text-shamrock font-medium my-1">2. Information We Collect</h2>
                 <p className="my-4">When you sign up for our loyalty program, we collect the following information:</p>
                 <ul className="my-4">
-                    <li>First Name</li>
-                    <li>Last Name</li>
+                    <li>Full Name</li>
+                    {/* <li>First Name</li> */}
+                    {/* <li>Last Name</li> */}
                     <li>Email Address</li>
-                    <li>Company Name (optional)</li>
-                    <li>Business Category</li>
-                    {/* <li>Contact Number</li> */}
+                    {/* <li>Company Name (optional)</li> */}
+                    {/* <li>Business Category</li> */}
+                    <li>Contact Number</li>
                 </ul>
 
                 <h2 className="text-lg text-shamrock font-medium my-1">3. How We Use Your Information</h2>
