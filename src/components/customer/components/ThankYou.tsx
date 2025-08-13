@@ -1,5 +1,5 @@
-import { sendGAEventCustom } from '@/utils/Helper';
-import { Button } from '@/components/Button';
+import { sendGAEventCustom } from '@/utils/Helper'
+import { Button } from '@/components/Button'
 
 function ThankYou() {
   return (
@@ -10,7 +10,8 @@ function ThankYou() {
       <p className="text-lg my-6 leading-loose">
         We&#39;re excited to have you on board.
         <br />
-        Stay tuned for more updates, and thank you for your patience and support.
+        Stay tuned for more updates, and thank you for your patience and
+        support.
       </p>
       <Button
         href="/"
@@ -21,14 +22,14 @@ function ThankYou() {
             action: 'click',
             category: 'Button',
             label: `Go back home`,
-            value: `Go back home`
-          })}
+            value: `Go back home`,
+          })
+        }
       >
         Go back home
       </Button>
     </div>
-  );
+  )
 }
 
-export default ThankYou;
-
+export default ThankYou

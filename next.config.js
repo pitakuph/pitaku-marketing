@@ -10,16 +10,16 @@ const nextConfig = {
     API_BASE_URL: process.env.API_BASE_URL,
   },
   images: {
-      domains: ['localhost','pitaku-marketing-alpha.vercel.app'],
-      remotePatterns: [
-        {
-          protocol: 'https',
-          hostname: process.env.IMAGE_URL,
-          port: '',
-          pathname: '/**',
-        },
-      ],
-    },   
+    domains: ['localhost', 'pitaku-marketing-alpha.vercel.app'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: process.env.IMAGE_URL,
+        port: '',
+        pathname: '/**',
+      },
+    ],
+  },
 }
 
 module.exports = nextConfig

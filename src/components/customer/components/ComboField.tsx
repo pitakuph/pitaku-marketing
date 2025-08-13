@@ -1,7 +1,7 @@
-import ComboBox from '@/components/Combobox';
-import { CustomerFieldProps } from '../CustomerForm';
+import ComboBox from '@/components/Combobox'
+import { CustomerFieldProps } from '../CustomerForm'
 
-type ComboOption = { id: string; name: string };
+type ComboOption = { id: string; name: string }
 
 function ComboField({
   fieldId,
@@ -10,11 +10,14 @@ function ComboField({
   errorMessage,
   register,
   required = false,
-  options
+  options,
 }: CustomerFieldProps & { options: ComboOption[] }) {
   return (
     <div>
-      <label htmlFor={fieldId} className="block text-sm font-medium  text-gray-900">
+      <label
+        htmlFor={fieldId}
+        className="block text-sm font-medium  text-gray-900"
+      >
         {label} {required && <span className="text-red-500">*</span>}
       </label>
       <div className="mt-2.5">
@@ -25,10 +28,12 @@ function ComboField({
           register={register}
           required={required}
         />
-        {errors[fieldId] && required && <span className="text-red-500 text-sm">{errorMessage}</span>}
+        {errors[fieldId] && required && (
+          <span className="text-red-500 text-sm">{errorMessage}</span>
+        )}
       </div>
     </div>
-  );
+  )
 }
 
-export default ComboField;
+export default ComboField

@@ -1,19 +1,19 @@
-import { useEffect, useRef, useState } from 'react';
-import { motion, useAnimation } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
+import { useEffect } from 'react'
+import { motion, useAnimation } from 'framer-motion'
+import { useInView } from 'react-intersection-observer'
 
-const RevealOnScroll = ({ children }:any) => {
-  const controls = useAnimation();
+const RevealOnScroll = ({ children }: any) => {
+  const controls = useAnimation()
   const [ref, inView] = useInView({
     threshold: 0.25,
     triggerOnce: true,
-  });
+  })
 
   useEffect(() => {
     if (inView) {
-      controls.start('visible');
+      controls.start('visible')
     }
-  }, [controls, inView]);
+  }, [controls, inView])
 
   return (
     <motion.div
@@ -28,7 +28,7 @@ const RevealOnScroll = ({ children }:any) => {
     >
       {children}
     </motion.div>
-  );
-};
+  )
+}
 
-export default RevealOnScroll;
+export default RevealOnScroll

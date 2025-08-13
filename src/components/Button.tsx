@@ -3,9 +3,9 @@ import clsx from 'clsx'
 
 const baseStyles = {
   solid:
-    'group inline-flex items-center justify-center rounded-full py-2 px-4 text-base font-semibold focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2',
+    'group inline-flex items-center justify-center rounded-full py-1 px-4 text-base font-semibold focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2',
   outline:
-    'group inline-flex ring-1 items-center justify-center rounded-full py-2 px-4 text-base focus:outline-none',
+    'group inline-flex ring-1 items-center justify-center rounded-full py-1 px-4 text-base focus:outline-none',
 }
 
 const variantStyles = {
@@ -17,12 +17,16 @@ const variantStyles = {
       'bg-white text-slate-900 hover:bg-blue-50 active:bg-blue-200 active:text-slate-600 focus-visible:outline-white',
     green:
       'bg-shamrock text-white hover:bg-shamrock/75 active:bg-shamrock-200 active:text-white focus-visible:outline-shamrock',
+    lightgreen:
+      'bg-[#e7f7e8] text-shamrock hover:bg-dark-green hover:text-[#e7f7e8] active:bg-dark-green active:text-[#e7f7e8] focus-visible:outline-white',
   },
   outline: {
     slate:
       'ring-slate-200 text-slate-700 hover:text-slate-900 hover:ring-slate-300 active:bg-slate-100 active:text-slate-600 focus-visible:outline-blue-600 focus-visible:ring-slate-300',
     white:
       'ring-slate-700 text-white hover:ring-slate-500 active:ring-slate-700 active:text-slate-400 focus-visible:outline-white',
+    lightgreen:
+      'ring-[#e7f7e8] text-[#e7f7e8] hover:bg-blue-50 hover:text-shamrock active:bg-[#e7f7e8] active:text-[#e7f7e8] focus-visible:outline-[#e7f7e8]',
   },
 }
 

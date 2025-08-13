@@ -1,4 +1,4 @@
-'use client';
+'use client'
 import Link from 'next/link'
 import { sendGAEventCustom } from '@/utils/Helper'
 
@@ -11,14 +11,16 @@ export function NavLink({
 }) {
   return (
     <Link
-      onClick={()=>sendGAEventCustom({ 
-        action: 'click', 
-        category: 'Button',
-        label: `${children} - Navlink`,
-        value: `${children} - Navlink` 
-      })}
+      onClick={() =>
+        sendGAEventCustom({
+          action: 'click',
+          category: 'Button',
+          label: `${children} - Navlink`,
+          value: `${children} - Navlink`,
+        })
+      }
       href={href}
-      className="inline-block rounded-lg px-2 py-1 text-lg font-medium text-slate-700 hover:bg-shamrock/10"
+      className="inline-block rounded-lg px-2 py-1 text-lg font-medium text-white hover:bg-shamrock/10"
     >
       {children}
     </Link>

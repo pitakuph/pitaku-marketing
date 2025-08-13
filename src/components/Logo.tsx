@@ -1,31 +1,29 @@
-import Image from "next/image"
+import Image from 'next/image'
 
-import pitakuLogoMark from '@/images/pitaku-logomark.svg'
+// import pitakuLogoMark from '@/images/pitaku-logomark.svg'
 import pitakuLogo from '@/images/pitaku-logo.svg'
 
 export function Logo(props: any) {
-
-  if(props.logotype === "logomark"){
+  if (props.logotype === 'logomark') {
     return (
-      <Image 
+      <Image
         {...props}
-        src={pitakuLogoMark}
+        src={pitakuLogo}
         width={100}
         height={100}
         alt="pitaku-logo"
+        className="w-[150px] -ml-2"
       />
     )
   }
 
   return (
-    <Image 
+    <Image
       {...props}
       src={pitakuLogo}
       width={100}
       height={100}
       alt="pitaku-logo"
     />
-  )  
-
-
+  )
 }

@@ -1,4 +1,4 @@
-import { Lexend, Rubik, Sora  } from 'next/font/google'
+import { Lexend, Sora, Open_Sans } from 'next/font/google'
 import clsx from 'clsx'
 import Head from 'next/head'
 import '@/styles/tailwind.css'
@@ -15,8 +15,7 @@ export const metadata: Metadata = {
   openGraph: {
     url: 'https://www.pitaku.ph',
     title: 'Pitaku Rewards',
-    description:
-      'Pitaku Rewards - Create rewards for your loyal customers.',
+    description: 'Pitaku Rewards - Create rewards for your loyal customers.',
     images: [
       {
         url: '/images/pitaku-rewards.jpg',
@@ -26,14 +25,8 @@ export const metadata: Metadata = {
       },
     ],
     siteName: 'Pitaku Rewards',
-  },   
+  },
 }
-
-// const inter = Inter({
-//   subsets: ['latin'],
-//   display: 'swap',
-//   variable: '--font-inter',
-// })
 
 const lexend = Lexend({
   subsets: ['latin'],
@@ -41,16 +34,10 @@ const lexend = Lexend({
   variable: '--font-lexend',
 })
 
-// const notosans = Noto_Sans({
-//   subsets: ['latin'],
-//   display: 'swap',
-//   variable: '--font-notosans',
-// })
-
-const rubik = Rubik({
+const opensans = Open_Sans({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-rubik',
+  variable: '--font-opensans',
 })
 
 const sora = Sora({
@@ -71,10 +58,14 @@ export default function RootLayout({
         'h-full scroll-smooth bg-white bg-repeat antialiased',
         lexend.variable,
         sora.variable,
+        opensans.variable,
       )}
     >
       <Head>
-        <meta name="google-site-verification" content="k3oSinnwQEGxwPybB_a2LnS8rf8gvvVegzJ3zCjICk4" />
+        <meta
+          name="google-site-verification"
+          content="k3oSinnwQEGxwPybB_a2LnS8rf8gvvVegzJ3zCjICk4"
+        />
       </Head>
       <body className="flex h-full flex-col">{children}</body>
       <GoogleAnalytics gaId="G-9STR1P6QEC" />

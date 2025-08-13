@@ -6,12 +6,6 @@ import { Tab } from '@headlessui/react'
 import clsx from 'clsx'
 
 import { Container } from '@/components/Container'
-import backgroundImage from '@/images/background-features.jpg'
-import screenshotExpenses from '@/images/screenshots/expenses.png'
-import screenshotPayroll from '@/images/screenshots/payroll.png'
-import screenshotReporting from '@/images/screenshots/reporting.png'
-import screenshotVatReturns from '@/images/screenshots/vat-returns.png'
-
 import screenshotSalesTracker from '@/images/screenshots/sales-tracker.png'
 import screenshotRewards from '@/images/screenshots/rewards.png'
 import screenshotDevices from '@/images/screenshots/devices.png'
@@ -20,40 +14,32 @@ const features = [
   {
     title: 'Rewards creator and management',
     description:
-      "Easily create and customize digital loyalty rewards, track redemptions, and keep your customers engaged.",
+      'Easily create and customize digital loyalty rewards, track redemptions, and keep your customers engaged.',
     image: screenshotRewards,
-    badge: "",
+    badge: '',
   },
-  // {
-  //   title: 'Reporting',
-  //   description:
-  //     'Easily export your data into an Excel spreadsheet where you can do whatever the hell you want with it.',
-  //   image: screenshotReporting,
-  // },
   {
     title: 'Accessible Anytime, Anywhere',
     description:
       'Access your rewards program seamlessly on mobile, tablet, or laptop—manage your loyalty programs on the go, wherever you are.',
     image: screenshotDevices,
-    badge: "",
-  },  
+    badge: '',
+  },
   {
     title: 'Real-time Sales Tracker',
-    description:
-      "Monitor daily transactions and performance at a glance.",
+    description: 'Monitor daily transactions and performance at a glance.',
     image: screenshotSalesTracker,
-    badge: "premium",
+    badge: 'premium',
   },
-
 ]
 
 export function PrimaryFeatures() {
-  let [tabOrientation, setTabOrientation] = useState<'horizontal' | 'vertical'>(
-    'horizontal',
-  )
+  const [tabOrientation, setTabOrientation] = useState<
+    'horizontal' | 'vertical'
+  >('horizontal')
 
   useEffect(() => {
-    let lgMediaQuery = window.matchMedia('(min-width: 1024px)')
+    const lgMediaQuery = window.matchMedia('(min-width: 1024px)')
 
     function onMediaQueryChange({ matches }: { matches: boolean }) {
       setTabOrientation(matches ? 'vertical' : 'horizontal')
@@ -73,23 +59,12 @@ export function PrimaryFeatures() {
       aria-label="Features for running your books"
       className="relative overflow-hidden bg-dark-green pb-28 pt-20 sm:py-32"
     >
-      {/* <Image
-        className="absolute left-1/2 top-1/2 max-w-none translate-x-[-44%] translate-y-[-42%]"
-        src={backgroundImage}
-        alt=""
-        width={2245}
-        height={1636}
-        unoptimized
-      /> */}
       <Container className="relative">
         <div className="max-w-2xl md:mx-auto md:text-center xl:max-w-none">
           <h2 className="font-display text-2xl text-center tracking-tight text-white sm:text-4xl md:text-5xl">
-            Everything you need to build lasting customer loyalty, all in one easy-to-use platform.
+            Everything you need to build lasting customer loyalty, all in one
+            easy-to-use platform.
           </h2>
-          {/* <p className="mt-6 text-lg tracking-tight text-green-100">
-            Well everything you need if you aren’t that picky about minor
-            details like tax compliance.
-          </p> */}
         </div>
         <Tab.Group
           as="div"
@@ -120,12 +95,12 @@ export function PrimaryFeatures() {
                           )}
                         >
                           <span className="absolute inset-0 rounded-full lg:rounded-l-xl lg:rounded-r-none" />
-                            {feature.title} 
-                            {feature?.badge &&
-                              <span className="uppercase font-bold ml-2 text-xs rounded-full px-5 py-0.5 bg-green-500">
-                                {feature?.badge}
-                              </span>
-                            }
+                          {feature.title}
+                          {feature?.badge && (
+                            <span className="uppercase font-bold ml-2 text-xs rounded-full px-5 py-0.5 bg-green-500">
+                              {feature?.badge}
+                            </span>
+                          )}
                         </Tab>
                       </h3>
                       <p
@@ -151,14 +126,12 @@ export function PrimaryFeatures() {
                         {feature.description}
                       </p>
                     </div>
-                    {/* <div className="mt-10 w-[36rem] overflow-hidden rounded-xl bg-slate-50 shadow-xl shadow-blue-900/20 sm:w-auto lg:mt-0 lg:w-[53.0625rem]"> */}
                     <div className="mt-10 w-[26rem] overflow-hidden rounded-xl sm:w-auto lg:mt-0 lg:w-[53.0625rem]">
                       <Image
                         className="w-full"
                         src={feature.image}
                         alt=""
                         priority
-                        // sizes="(min-width: 1024px) 67.8125rem, (min-width: 640px) 100vw, 45rem"
                         sizes="(min-width: 849px) 53.0625rem, (min-width: 590px) 100vw, 26rem"
                       />
                     </div>

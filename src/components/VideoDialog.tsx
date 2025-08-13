@@ -1,30 +1,27 @@
-'use client';
+'use client'
 
 import { Fragment, useState, useEffect } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
-import YouTubePlayer from './YoutubePlayer';
+import YouTubePlayer from './YoutubePlayer'
 
 type Props = {
-    isOpen: boolean;
-    setIsOpen: any;
+  isOpen: boolean
+  setIsOpen: any
 }
 
-export default function VideoDialog({
-    isOpen,
-    setIsOpen
-}:Props) {
+export default function VideoDialog({ isOpen, setIsOpen }: Props) {
   const [open, setOpen] = useState(false)
 
-    useEffect(()=>{
-        console.log("isOpen", isOpen);
-        setOpen(isOpen);
-    },[isOpen]);
+  useEffect(() => {
+    console.log('isOpen', isOpen)
+    setOpen(isOpen)
+  }, [isOpen])
 
-    useEffect(()=>{
-        console.log("open", open);
-        setIsOpen(open);
-    },[open]);    
+  useEffect(() => {
+    console.log('open', open)
+    setIsOpen(open)
+  }, [open])
 
   return (
     <Transition.Root show={open} as={Fragment}>
@@ -43,7 +40,10 @@ export default function VideoDialog({
 
         <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
           <div className="flex min-h-full items-stretch justify-center text-center md:items-center md:px-2 lg:px-4">
-            <span className="hidden md:inline-block md:h-screen md:align-middle" aria-hidden="true">
+            <span
+              className="hidden md:inline-block md:h-screen md:align-middle"
+              aria-hidden="true"
+            >
               &#8203;
             </span>
             <Transition.Child
@@ -57,7 +57,7 @@ export default function VideoDialog({
             >
               <Dialog.Panel className="flex w-full transform text-left text-base transition md:my-8 md:max-w-2xl md:px-4 lg:max-w-4xl">
                 <div className="relative flex w-full items-center overflow-hidden bg-black shadow-2xl rounded-xl">
-                 <button
+                  <button
                     type="button"
                     className="absolute right-4 top-4 text-gray-400 hover:text-gray-500 sm:right-6 sm:top-8 md:right-6 md:top-6 lg:right-8 lg:top-8"
                     onClick={() => setOpen(false)}
@@ -66,10 +66,9 @@ export default function VideoDialog({
                     <XMarkIcon className="h-6 w-6" aria-hidden="true" />
                   </button>
 
-                  <div className='w-full flex items-center justify-center sm:p-6'>
-                    <YouTubePlayer videoId="Jv-_i9i_MmY" />                  
+                  <div className="w-full flex items-center justify-center sm:p-6">
+                    <YouTubePlayer videoId="Jv-_i9i_MmY" />
                   </div>
-
                 </div>
               </Dialog.Panel>
             </Transition.Child>
