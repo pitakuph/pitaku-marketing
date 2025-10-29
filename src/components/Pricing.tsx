@@ -1,6 +1,7 @@
 import clsx from 'clsx'
 
-import { Button } from '@/components/Button'
+// import { Button } from '@/components/Button'
+import { CustomButton } from '@/components/Button'
 import { Container } from '@/components/Container'
 import RevealOnScroll from '@/utils/aceternity/reveal-scroll'
 import { sendGAEventCustom } from '@/utils/Helper'
@@ -95,7 +96,7 @@ function Plan({
           </li>
         ))}
       </ul>
-      <Button
+      <CustomButton
         href={href}
         variant={featured ? 'solid' : 'solid'}
         color={featured ? 'green' : 'white'}
@@ -110,7 +111,7 @@ function Plan({
         }
       >
         Get started
-      </Button>
+      </CustomButton>
     </section>
   )
 }

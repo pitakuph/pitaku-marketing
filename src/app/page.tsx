@@ -2,12 +2,12 @@
 
 import Header from '@/components/header/Header'
 import Hero from '@/components/hero/Hero'
-// import Belt from '@/components/hero/Belt'
+import Belt from '@/components/hero/Belt'
 import Explainer from '@/components/Explainer'
 import HowItWorks from '@/components/HowItWorks'
 import Faqs from '@/components/Faqs'
-// import Testimonials from '@/components/Testimonials'
-// import Features3 from '@/components/Features3'
+import Testimonials from '@/components/Testimonials'
+import Features3 from '@/components/Features3'
 import Footer from '@/components/Footer'
 
 // import { sendGAEventCustom } from '@/utils/Helper';
@@ -21,7 +21,7 @@ export default function Home() {
         {/* <Belt /> */}
         <Explainer />
         <HowItWorks />
-        {/* <Features3 /> */}
+        <Features3 />
         {/* <Testimonials /> */}
         {/* <CallToAction /> */}
         <Faqs />

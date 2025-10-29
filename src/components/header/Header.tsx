@@ -2,9 +2,9 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { Menu, Users, Building2, Phone, LogIn } from 'lucide-react'
+import { Menu, Users, Building2, Phone, LogIn, Info } from 'lucide-react'
 import { motion } from 'framer-motion'
-
+import { usePathname } from 'next/navigation'
 import { Button } from '@/components/ui/button'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 import {
@@ -21,10 +21,12 @@ import { Logo } from '../Logo'
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const path = usePathname()
+  console.log('path:', path)
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
-      <div className=" flex h-20 items-center justify-between px-4 md:px-6 lg:px-16">
+      <div className=" flex h-20 items-center justify-between px-4 container mx-auto">
         {/* Logo */}
         <Link href="/" className="flex items-center">
           <Logo className="lg:w-[130px]" />
@@ -32,16 +34,28 @@ export default function Header() {
 
         {/* Desktop Navigation */}
         <div className="flex-row gap-10 hidden lg:flex items-center">
+          {/* {path.toString().includes('contact') ? */}
           <Link
-            href="/contact"
+            href="/about"
             className="flex items-center z-50 gap-1 text-gray-700 hover:text-gray-900 transition-colors"
           >
-            <Phone className="h-4 w-4" />
+            {/* <Info className="h-4 w-4" /> */}
+            About Us
+          </Link>
+          {/* : */}
+          <Link
+            // href="/contact"
+            href="https://m.me/pitakurewards"
+            target="_blank"
+            className="flex items-center z-50 gap-1 text-gray-700 hover:text-gray-900 transition-colors"
+          >
+            {/* <Phone className="h-4 w-4" /> */}
             Contact
           </Link>
+          {/* }           */}
 
           {/* Desktop Login/Signup Dropdown */}
-          <NavigationMenu className="hidden lg:flex right-[100px]">
+          {/* <NavigationMenu className="hidden lg:flex right-[100px]">
             <NavigationMenuList className="relative -right-[100px] bg-red-100">
               <NavigationMenuItem>
                 <NavigationMenuTrigger
@@ -62,7 +76,7 @@ export default function Header() {
                   >
                     <NavigationMenuLink asChild>
                       <Link
-                        href="/merchants/login"
+                        href="/merchants"
                         className="group block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                       >
                         <div className="flex items-center gap-2">
@@ -79,7 +93,7 @@ export default function Header() {
                     </NavigationMenuLink>
                     <NavigationMenuLink asChild>
                       <Link
-                        href="/customers/login"
+                        href="/customer"
                         className="group block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                       >
                         <div className="flex items-center gap-2">
@@ -99,7 +113,7 @@ export default function Header() {
             </NavigationMenuList>
 
             <NavigationMenuViewport />
-          </NavigationMenu>
+          </NavigationMenu> */}
         </div>
 
         {/* Mobile Menu */}
@@ -122,17 +136,30 @@ export default function Header() {
               </Link>
 
               {/* Mobile Navigation Links */}
+              {/* {path.toString().includes('contact') ? */}
               <Link
-                href="/contact"
+                href="/about"
                 className="flex items-center gap-2 text-lg font-semibold text-gray-900 hover:text-blue-600 transition-colors"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                <Phone className="h-5 w-5" />
-                Contact
+                {/* <Info className="h-5 w-5" /> */}
+                About Us
               </Link>
+              {/* : */}
+              <Link
+                // href="/contact"
+                href="https://m.me/pitakurewards"
+                target="_blank"
+                className="flex items-center gap-2 text-lg font-semibold text-gray-900 hover:text-blue-600 transition-colors"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {/* <Phone className="h-5 w-5" /> */}
+                Contact Us
+              </Link>
+              {/* } */}
 
               {/* Mobile Login Section */}
-              <div className="space-y-3 pt-4 border-t">
+              {/* <div className="space-y-3 pt-4 border-t">
                 <h3 className="flex items-center gap-2 text-lg font-semibold text-gray-900">
                   <LogIn className="h-5 w-5 text-shamrock" />
                   Login or Sign up
@@ -153,7 +180,7 @@ export default function Header() {
                     Customers
                   </Link>
                 </div>
-              </div>
+              </div> */}
             </div>
           </SheetContent>
         </Sheet>

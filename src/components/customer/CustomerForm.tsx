@@ -7,7 +7,8 @@ import { useRef, useState } from 'react'
 import axios, { AxiosResponse } from 'axios'
 import { sendGAEventCustom } from '@/utils/Helper'
 
-import { Button } from '../Button'
+// import { Button } from '../Button'
+import { CustomButton } from '../Button'
 import Welcome from './components/Welcome'
 import PrivacyPolicy from './components/PrivacyPolicy'
 import ComboField from './components/ComboField'
@@ -230,7 +231,7 @@ export default function ContactForm() {
           </div>
         )}
         <div className="mt-10">
-          <Button
+          <CustomButton
             type="submit"
             color="green"
             disabled={!agreed || !verified}
@@ -249,7 +250,7 @@ export default function ContactForm() {
             `}
           >
             <span>Submit</span>
-          </Button>
+          </CustomButton>
         </div>
       </form>
     </div>

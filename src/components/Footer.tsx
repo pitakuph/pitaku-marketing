@@ -2,21 +2,23 @@
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { Building2, Linkedin, Twitter, Facebook, Instagram } from 'lucide-react'
+import { Twitter, Facebook, Instagram } from 'lucide-react'
+import { Logo } from './Logo'
 
 const footerLinks = {
   company: [
-    { name: 'Contact', href: '/contact' },
-    { name: 'Security', href: '/security' },
+    // { name: 'Contact', href: '/contact' },
+    { name: 'Contact', href: 'https://m.me/pitakurewards' },
+    // { name: 'Security', href: '/security' },
     { name: 'About Us', href: '/about' },
-    { name: 'Careers', href: '/careers' },
+    // { name: 'Careers', href: '/careers' },
   ],
-  whoWeHelp: [
-    { name: 'Customers', href: '/customers' },
-    { name: 'Merchants', href: '/merchants' },
-    { name: 'Drivers', href: '/drivers' },
-    { name: 'Partners', href: '/partners' },
-  ],
+  // whoWeHelp: [
+  //   // { name: 'Customers', href: '/customers' },
+  //   // { name: 'Merchants', href: '/merchants' },
+  //   // { name: 'Drivers', href: '/drivers' },
+  //   // { name: 'Partners', href: '/partners' },
+  // ],
   resources: [
     { name: 'Help Center', href: '/help' },
     { name: 'Blog', href: '/blog' },
@@ -26,17 +28,25 @@ const footerLinks = {
 }
 
 const socialLinks = [
-  { name: 'LinkedIn', href: '#', icon: Linkedin },
-  { name: 'Twitter', href: '#', icon: Twitter },
-  { name: 'Facebook', href: '#', icon: Facebook },
-  { name: 'Instagram', href: '#', icon: Instagram },
+  // { name: 'LinkedIn', href: '#', icon: Linkedin },
+  // { name: 'Twitter', href: '#', icon: Twitter },
+  {
+    name: 'Facebook',
+    href: 'https://www.facebook.com/pitakurewards',
+    icon: Facebook,
+  },
+  {
+    name: 'Instagram',
+    href: 'https://www.instagram.com/pitakurewards',
+    icon: Instagram,
+  },
 ]
 
 const legalLinks = [
-  { name: 'Privacy Policy', href: '/privacy' },
-  { name: 'Privacy Collection Notice', href: '/privacy-collection' },
-  { name: 'Terms of Service', href: '/terms' },
-  { name: 'Cookie Policy', href: '/cookies' },
+  { name: 'Privacy Policy', href: '/privacy-policy' },
+  // { name: 'Privacy Collection Notice', href: '/privacy-collection' },
+  // { name: 'Terms of Service', href: '/terms-of-service' },
+  // { name: 'Cookie Policy', href: '/cookies-policy' },
 ]
 
 export default function Footer() {
@@ -60,27 +70,25 @@ export default function Footer() {
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12"
         >
           {/* Brand Section */}
-          <div className="lg:col-span-2">
-            <Link href="/" className="flex items-center space-x-2 mb-4">
-              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-600">
-                <Building2 className="h-5 w-5 text-white" />
-              </div>
-              <span className="text-2xl font-bold">DeliveryApp</span>
+          <div className="lg:col-span-3 flex flex-col self-start">
+            <Link href="/" className="flex self-start mb-4">
+              <Logo logotype="logomark" className="w-14 h-14" />
             </Link>
             <p className="text-gray-300 leading-relaxed max-w-md">
-              Join the revolution and see how easy DeliveryApp makes food
-              delivery and business management.
+              Join the revolution and see how easy Pitaku makes your customers
+              keep coming back.
             </p>
           </div>
 
           {/* Company Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Company</h3>
+            <h3 className="text-lg font-semibold mb-4 text-shamrock">Team</h3>
             <ul className="space-y-3">
               {footerLinks.company.map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.href}
+                    target="_blank"
                     className="text-gray-300 hover:text-white transition-colors duration-200"
                   >
                     {link.name}
@@ -91,7 +99,7 @@ export default function Footer() {
           </div>
 
           {/* Who We Help Links */}
-          <div>
+          {/* <div>
             <h3 className="text-lg font-semibold mb-4">Who we help</h3>
             <ul className="space-y-3">
               {footerLinks.whoWeHelp.map((link) => (
@@ -105,16 +113,19 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
+          </div> */}
 
           {/* Follow Us / Social Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Follow us</h3>
+            <h3 className="text-lg font-semibold mb-4 text-shamrock">
+              Follow us
+            </h3>
             <div className="space-y-3">
               {socialLinks.map((social) => (
                 <Link
                   key={social.name}
                   href={social.href}
+                  target="_blank"
                   className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors duration-200"
                 >
                   <social.icon className="h-4 w-4" />
@@ -132,10 +143,7 @@ export default function Footer() {
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6">
           {/* Copyright */}
           <div className="text-sm text-gray-400">
-            <p>
-              Copyright © {currentYear} DeliveryApp Technology | ABN 99 649 575
-              315 | Australian Business Licence 536443
-            </p>
+            <p>Copyright © 2025 Pitaku Rewards</p>
           </div>
 
           {/* Legal Links */}
@@ -158,7 +166,7 @@ export default function Footer() {
       </div>
 
       {/* Newsletter Section (Optional Enhancement) */}
-      <motion.div
+      {/* <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -185,7 +193,7 @@ export default function Footer() {
             </div>
           </div>
         </div>
-      </motion.div>
+      </motion.div> */}
     </motion.footer>
   )
 }

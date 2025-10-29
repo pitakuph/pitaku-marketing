@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import Link from 'next/link'
 
 const steps = [
   {
@@ -11,16 +12,14 @@ const steps = [
     title: 'Sign Up and login',
     description:
       "You only need your name, email and mobile number. It's that easy!",
-    mockupImage:
-      'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-08-11%20211345-s0E16DSl1qNi4YsAJiF6NgLQppxGPk.png',
+    mockupImage: '/images/pitaku-step-1.png',
     mockupAlt: 'sign-up',
   },
   {
     id: 2,
     title: 'Create your rewards',
     description: 'Provide name, type and duration of the reward item.',
-    mockupImage:
-      'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-08-11%20211404-sfdmASGpukW312fnySl1sNpANfcN5n.png',
+    mockupImage: '/images/pitaku-step-2.png',
     mockupAlt: 'create-your-rewards',
   },
   {
@@ -28,7 +27,7 @@ const steps = [
     title: 'Transact',
     description:
       'Encourage your customers to register to your loyalty program.',
-    mockupImage: '/mobile-app-profile-setup.png',
+    mockupImage: '/images/pitaku-step-3.png',
     mockupAlt: 'transact',
   },
   {
@@ -36,14 +35,14 @@ const steps = [
     title: 'Reward your customers',
     description:
       'Engage with your customers and know the rewards that matter to them.',
-    mockupImage: '/mobile-delivery-dashboard.png',
+    mockupImage: '/images/pitaku-step-4.png',
     mockupAlt: 'Reward',
   },
   {
     id: 5,
     title: 'Enjoy!',
     description: 'Build your community by using Pitaku.',
-    mockupImage: '/mobile-app-analytics-dashboard.png',
+    mockupImage: '/images/pitaku-step-5.png',
     mockupAlt: 'enjoy',
   },
 ]
@@ -69,7 +68,8 @@ export default function HowItWorks() {
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 0.8 }}
-      className="relative py-16 md:py-24 bg-gradient-to-br from-emerald-50 via-green-50 to-teal-100 overflow-hidden"
+      // className="relative py-16 md:py-24 bg-gradient-to-br from-emerald-10 via-green-50 to-teal-100 overflow-hidden"
+      className="relative py-16 md:py-24 bg-gradient-to-br from-emerald-200 via-emerald-50 to-white overflow-hidden"
     >
       {/* Background Decorative Elements */}
       {/* <div className="absolute top-20 left-10 opacity-30">
@@ -109,7 +109,7 @@ export default function HowItWorks() {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="max-w-7xl mx-auto"
         >
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             {/* Mobile Mockup */}
             <motion.div
               key={currentStep}
@@ -117,7 +117,7 @@ export default function HowItWorks() {
               animate={{ opacity: 1, x: 0, scale: 1 }}
               exit={{ opacity: 0, x: 50, scale: 0.9 }}
               transition={{ duration: 0.5 }}
-              className="relative flex justify-center lg:justify-start"
+              className="relative flex justify-center lg:justify-center"
             >
               {/* Decorative Arrow */}
               {/* <div className="absolute -top-8 -right-8 hidden lg:block">
@@ -144,14 +144,14 @@ export default function HowItWorks() {
 
               {/* Phone Mockup */}
               <div className="relative">
-                <div className="w-72 h-[580px] -rotate-6 md:w-80 md:h-[640px] bg-white rounded-[3rem] shadow-2xl border-8 border-gray-200 overflow-hidden">
+                <div className="w-72 h-[580px] -rotate-[10deg] scale-[80%] md:w-[340px] md:h-[640px] bg-white rounded-[2.5rem] shadow-2xl border-8 border-gray-200 overflow-hidden">
                   <div className="relative h-full">
                     {/* Phone Screen */}
-                    {/* <img
-                      src={steps[currentStep].mockupImage || '/placeholder.svg'}
+                    <img
+                      src={steps[currentStep].mockupImage}
                       alt={steps[currentStep].mockupAlt}
                       className="w-full h-full object-cover"
-                    /> */}
+                    />
                   </div>
                 </div>
 
@@ -258,14 +258,16 @@ export default function HowItWorks() {
           {/* <Button size="lg" className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 text-lg font-semibold">
             Get Started Now
           </Button> */}
-          <Button
-            size="lg"
-            className="bg-green-600 hover:bg-green-700 text-white px-8 py-6 text-lg font-semibold group font-display"
-          >
-            Get Started
-            <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-          </Button>
-
+          <Link href="https://m.me/pitakurewards" target="_blank">
+            <Button
+              size="lg"
+              className="bg-green-600 hover:bg-green-700 text-white px-8 py-6 text-lg font-semibold group font-display"
+            >
+              {/* Get started */}
+              Join Waitlist
+              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+            </Button>
+          </Link>
           {/* <p className="text-sm text-gray-500 mt-3">No credit card required • Free trial available</p> */}
         </motion.div>
       </div>

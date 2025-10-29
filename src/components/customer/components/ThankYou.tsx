@@ -1,5 +1,6 @@
 import { sendGAEventCustom } from '@/utils/Helper'
-import { Button } from '@/components/Button'
+// import { Button } from '@/components/Button'
+import { CustomButton } from '@/components/Button'
 
 function ThankYou() {
   return (
@@ -13,7 +14,7 @@ function ThankYou() {
         Stay tuned for more updates, and thank you for your patience and
         support.
       </p>
-      <Button
+      <CustomButton
         href="/"
         color="green"
         className="mt-10"
@@ -27,7 +28,7 @@ function ThankYou() {
         }
       >
         Go back home
-      </Button>
+      </CustomButton>
     </div>
   )
 }

@@ -1,7 +1,8 @@
 'use client'
 // import { motion } from 'framer-motion';
 // import Image from 'next/image'
-import { Button } from '@/components/Button'
+// import { Button } from '@/components/Button'
+import { CustomButton } from '@/components/Button'
 import { Container } from '@/components/Container'
 // import { AuroraBackground } from '@/utils/aceternity/aurora-background';
 import RevealOnScroll from '@/utils/aceternity/reveal-scroll'
@@ -19,7 +20,7 @@ export function CallToAction() {
             <h2 className="font-sans text-3xl font-semibold text-center sm:text-left lg:text-left text-white sm:text-3xl lg:text-5xl">
               Let&#39;s grow your business together!
             </h2>
-            <Button
+            <CustomButton
               href="/contact"
               color="green"
               className="mt-10 self-center sm:self-start lg:self-start"
@@ -35,7 +36,7 @@ export function CallToAction() {
               <span className="px-4 font-normal text-xl text-white ">
                 Try It Free
               </span>
-            </Button>
+            </CustomButton>
           </div>
         </RevealOnScroll>
       </Container>

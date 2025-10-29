@@ -6,6 +6,7 @@ import { Badge } from '@/components/ui/badge'
 import { ArrowRight, Zap } from 'lucide-react'
 import HeroAnimation from './HeroAnimation'
 // import Belt from "./Belt"
+import Link from 'next/link'
 
 export default function Hero() {
   return (
@@ -14,17 +15,18 @@ export default function Hero() {
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 0.8 }}
-      className="relative overflow-hidden bg-gradient-to-br from-green-50 via-white to-emerald-100 lg:px-16"
+      className="relative overflow-hidden bg-gradient-to-br from-white via-shamrock/30 to-emerald-100 lg:px-16 border-dotted border-b-2 border-green-500"
+      // className="relative overflow-hidden bg-gradient-to-br from-green-50 via-teal-100 to-emerald-500 lg:px-16"
     >
       <div className="container mx-auto px-4 py-16 lg:py-24">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 items-start">
           {/* Left Column - Content */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="space-y-8"
+            className="space-y-8 lg:mt-10"
           >
             {/* Trial Badge */}
             <motion.div
@@ -35,9 +37,11 @@ export default function Hero() {
             >
               <Badge
                 variant="secondary"
-                className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium bg-emerald-100 text-emerald-800 hover:bg-emerald-200"
+                className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium bg-transparent rounded-xl border-green-400 text-green-600 hover:bg-transparent"
               >
-                <Zap className="h-4 w-4" />1 Month Free Trial
+                {/* <Zap className="h-4 w-4" />Unlock more with premium */}
+                <Zap className="h-4 w-4" />
+                Welcome to Pitaku Rewards!
               </Badge>
             </motion.div>
 
@@ -47,18 +51,20 @@ export default function Hero() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="space-y-4"
+              className="space-y-8"
             >
-              <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 leading-tight font-display mb-5">
-                Launch a&nbsp;
-                <span className="text-shamrock">loyalty program</span>
-                &nbsp;in minutes
+              <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 font-display mb-5 leading-none lg:leading-tight">
+                {/* Start a loyalty program in minutes&nbsp; */}
+                {/* <span className="text-shamrock">for free</span> */}
+                {`We’re building something`}&nbsp;
+                <span className="text-shamrock">powerful</span>&nbsp;
+                {`for your business.`}
               </h1>
 
               {/* Description */}
-              <p className="text-xl text-gray-600 leading-relaxed max-w-lg">
-                Pitaku rewards makes it effortless to build customer loyalty and
-                community - no tech skills needed.
+              <p className="my-5 text-xl text-gray-600 leading-relaxed max-w-xl">
+                {/* Pitaku rewards makes it effortless to build customer loyalty and community. */}
+                {`Join the waitlist and get early access when we launch.`}
               </p>
             </motion.div>
 
@@ -68,18 +74,32 @@ export default function Hero() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.8 }}
-              className="space-y-4"
+              className="flex flex-col sm:flex-row sm:items-center gap-4"
             >
-              <Button
-                size="lg"
-                className="bg-green-600 hover:bg-green-700 text-white px-8 py-6 text-lg font-semibold group font-display"
-              >
-                Get Started
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
+              <Link href="https://m.me/pitakurewards" target="_blank">
+                <Button
+                  size="lg"
+                  className="bg-green-600 hover:bg-green-700 text-white px-8 py-6 text-lg font-semibold group font-display"
+                >
+                  {/* Get started */}
+                  Join Waitlist
+                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </Link>
+
+              <Link href="#explainer">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="px-8 py-6 text-lg font-semibold group font-display"
+                >
+                  Learn More
+                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </Link>
 
               {/* Trial Messaging */}
-              <motion.div
+              {/* <motion.div
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -92,9 +112,9 @@ export default function Hero() {
                 </div>
                 <span>•</span>
                 <span>Cancel anytime</span>
-                {/* <span>•</span> */}
-                {/* <span>Full access</span> */}
-              </motion.div>
+                <span>•</span>
+                <span>Full access</span>
+              </motion.div> */}
             </motion.div>
 
             {/* Stats or Social Proof */}

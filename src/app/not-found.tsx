@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-import { Button } from '@/components/Button'
+import { CustomButton } from '@/components/Button'
 import { Logo } from '@/components/Logo'
 import { SlimLayout } from '@/components/SlimLayout'
 
@@ -20,9 +20,9 @@ export default function NotFound() {
         Even when pages disappear, your loyalty doesn’t. Let’s guide you back to
         something more rewarding.
       </p>
-      <Button href="/" color="green" className="mt-10">
+      <CustomButton href="/" color="green" className="mt-10">
         Go to homepage
-      </Button>
+      </CustomButton>
     </SlimLayout>
   )
 }

@@ -8,44 +8,45 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion'
+import Image from 'next/image'
 
 const faqs = [
   {
     id: 'item-1',
-    question: 'What is DeliveryApp?',
+    question: 'What is Pitaku rewards?',
     answer:
-      'DeliveryApp is a comprehensive delivery platform that connects customers, restaurants, and delivery drivers. We provide seamless ordering, efficient delivery management, and powerful analytics tools to help businesses grow and customers get their favorite food delivered quickly and reliably.',
+      'Pitaku Rewards is an online platform for creating and managing digital loyalty programs for small businesses.',
   },
   {
     id: 'item-2',
-    question: 'Can I trust DeliveryApp?',
+    question: 'How easy is it to set up the loyalty program?',
     answer:
-      "We use industry-leading security measures including bank-grade encryption, certified data centers, and comply with all local data protection laws. Your personal and payment information is completely secure with us. We're also fully licensed and insured for all delivery operations.",
+      'Setting up our loyalty program is straightforward and user-friendly. We provide step-by-step guides to help you get started. Additionally, our support team is available to assist you through the setup process to ensure everything runs smoothly.',
   },
   {
     id: 'item-3',
-    question: 'How do I use DeliveryApp?',
+    question: 'How do I use Pitaku rewards?',
     answer:
-      "Getting started is simple! Download our app or visit our website, create your account, and browse restaurants in your area. For restaurants, sign up for our merchant portal and we'll help you get set up within 24 hours. Delivery drivers can apply through our driver app and start earning after a quick verification process. You can use DeliveryApp from anywhere on your laptop, mobile, or tablet!",
+      'Getting started is simple! Sign up, create your rewards, and transact. You can use Pitaku rewards from anywhere on your laptop, mobile, or tablet!',
   },
   {
     id: 'item-4',
-    question: 'Do I have to pay to use DeliveryApp?',
+    question: 'What are the rewards I can give to my customers?',
     answer:
-      'For customers, DeliveryApp is free to use! You only pay for your food and a small delivery fee. Restaurants pay a competitive commission rate only when they receive orders. Delivery drivers keep 100% of their tips plus competitive base pay. We offer a 1-month free trial for new restaurant partners.',
+      'You can offer discounts, free products, exclusive deals, that customers can redeem for rewards.',
   },
   {
     id: 'item-5',
-    question: "What if my favorite restaurant doesn't use DeliveryApp?",
+    question: 'What device do I need to use the platform?',
     answer:
-      "We're constantly expanding our network of partner restaurants! You can suggest restaurants to join our platform through the app, and we'll reach out to them. We're also actively recruiting new restaurants in all areas. In the meantime, discover new favorites from our existing partners - you might find your next go-to spot!",
+      'You can use Pitaku Rewards on any device with an internet connection, such as a smartphone, tablet, or laptop.',
   },
-  {
-    id: 'item-6',
-    question: 'International customers',
-    answer:
-      "Currently, DeliveryApp operates in select regions, but we're rapidly expanding internationally. If we're not in your area yet, sign up for our waitlist to be notified when we launch in your location. We're committed to bringing our service to customers worldwide while maintaining our high standards of quality and reliability.",
-  },
+  // {
+  //   id: 'item-6',
+  //   question: 'International customers',
+  //   answer:
+  //     "Currently, DeliveryApp operates in select regions, but we're rapidly expanding internationally. If we're not in your area yet, sign up for our waitlist to be notified when we launch in your location. We're committed to bringing our service to customers worldwide while maintaining our high standards of quality and reliability.",
+  // },
 ]
 
 export default function FAQs() {
@@ -55,7 +56,7 @@ export default function FAQs() {
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 0.8 }}
-      className="relative py-16 md:py-24 bg-gradient-to-br from-purple-50 via-blue-50 to-indigo-50 overflow-hidden"
+      className="relative py-16 md:py-24 bg-gradient-to-br from-teal-50 via-white to-emerald-50 overflow-hidden"
     >
       {/* Background Decorative Elements */}
       <div className="absolute top-16 right-20 opacity-40">
@@ -77,11 +78,11 @@ export default function FAQs() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12 md:mb-20"
         >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4">
+          <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 font-display">
             Frequently Asked{' '}
             <span className="relative">
               <span className="relative z-10">Questions</span>
-              <div className="absolute bottom-2 left-0 right-0 h-3 bg-purple-300 -rotate-1"></div>
+              <div className="absolute bottom-2 left-0 right-0 h-2 bg-emerald-200 -rotate-1"></div>
             </span>
           </h2>
         </motion.div>
@@ -105,13 +106,16 @@ export default function FAQs() {
             >
               {/* Main Illustration Container */}
               <div className="relative">
-                {/* Computer Monitor */}
-                <div className="relative bg-gradient-to-br from-purple-400 to-blue-500 rounded-3xl p-8 shadow-2xl">
-                  {/* Screen */}
+                <Image
+                  src={`/images/pitaku-faqs.png`}
+                  width={601}
+                  height={482}
+                  alt="pitaku-faqs"
+                  className="w-full h-full object-contain"
+                />
+                {/* <div className="relative bg-gradient-to-br from-purple-400 to-blue-500 rounded-3xl p-8 shadow-2xl">
                   <div className="bg-gradient-to-br from-yellow-200 to-orange-200 rounded-2xl p-6 mb-4 relative overflow-hidden">
-                    {/* Characters */}
                     <div className="flex items-center justify-between relative z-10">
-                      {/* Left Character */}
                       <div className="flex flex-col items-center">
                         <div className="w-16 h-16 bg-gradient-to-br from-red-400 to-pink-400 rounded-full mb-2 flex items-center justify-center">
                           <div className="text-2xl">👩‍🦰</div>
@@ -121,7 +125,6 @@ export default function FAQs() {
                         </div>
                       </div>
 
-                      {/* Right Character */}
                       <div className="flex flex-col items-center">
                         <div className="w-16 h-16 bg-gradient-to-br from-blue-400 to-indigo-400 rounded-full mb-2 flex items-center justify-center">
                           <div className="text-2xl">👨‍💼</div>
@@ -132,17 +135,15 @@ export default function FAQs() {
                       </div>
                     </div>
 
-                    {/* Decorative Elements */}
                     <div className="absolute top-2 right-2 w-8 h-8 bg-green-400 rounded-full opacity-80 transform rotate-12"></div>
                     <div className="absolute bottom-2 left-2 w-6 h-6 bg-purple-400 rounded-full opacity-60 transform -rotate-12"></div>
                   </div>
 
-                  {/* Monitor Stand */}
                   <div className="w-16 h-8 bg-gradient-to-b from-purple-500 to-purple-600 rounded-b-lg mx-auto"></div>
-                </div>
+                </div> */}
 
                 {/* Floating Elements */}
-                <motion.div
+                {/* <motion.div
                   animate={{ y: [0, -10, 0] }}
                   transition={{
                     duration: 3,
@@ -152,9 +153,9 @@ export default function FAQs() {
                   className="absolute -top-4 -right-4 w-8 h-8 bg-purple-400 rounded-full flex items-center justify-center shadow-lg"
                 >
                   <Sparkles className="w-4 h-4 text-white" />
-                </motion.div>
+                </motion.div> */}
 
-                <motion.div
+                {/* <motion.div
                   animate={{ y: [0, 10, 0] }}
                   transition={{
                     duration: 4,
@@ -163,9 +164,9 @@ export default function FAQs() {
                     delay: 1,
                   }}
                   className="absolute -bottom-6 -left-6 w-6 h-6 bg-blue-400 rounded-full shadow-lg"
-                ></motion.div>
+                ></motion.div> */}
 
-                <motion.div
+                {/* <motion.div
                   animate={{ rotate: [0, 360] }}
                   transition={{
                     duration: 20,
@@ -173,7 +174,7 @@ export default function FAQs() {
                     ease: 'linear',
                   }}
                   className="absolute top-1/2 -left-8 w-4 h-4 border-2 border-purple-400 rounded-full"
-                ></motion.div>
+                ></motion.div> */}
               </div>
 
               {/* Additional Decorative Elements */}
@@ -207,7 +208,7 @@ export default function FAQs() {
                       value={faq.id}
                       className="bg-white/80 backdrop-blur-sm rounded-2xl border border-white/50 shadow-lg hover:shadow-xl transition-all duration-300 px-6 py-2"
                     >
-                      <AccordionTrigger className="text-left font-semibold text-gray-900 hover:text-purple-700 transition-colors text-base md:text-lg py-6 hover:no-underline">
+                      <AccordionTrigger className="text-left font-semibold text-gray-900 hover:text-shamrock transition-colors text-base md:text-lg py-6 hover:no-underline">
                         {faq.question}
                       </AccordionTrigger>
                       <AccordionContent className="text-gray-600 leading-relaxed pb-6 text-sm md:text-base">
@@ -219,7 +220,7 @@ export default function FAQs() {
               </Accordion>
 
               {/* Contact Support */}
-              <motion.div
+              {/* <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -235,7 +236,7 @@ export default function FAQs() {
                 <button className="bg-white text-purple-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
                   Contact Support
                 </button>
-              </motion.div>
+              </motion.div> */}
             </motion.div>
           </div>
         </motion.div>

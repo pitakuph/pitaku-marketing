@@ -2,8 +2,9 @@ import Header from '@/components/header/Header'
 import Footer from '@/components/Footer'
 import ContactForm from '@/components/ContactForm'
 import { type Metadata } from 'next'
-
-import { cookies } from 'next/headers'
+// import Image from 'next/image'
+import ContactImage from '@/components/contact/ContactImage'
+// import { cookies } from 'next/headers'
 
 export const metadata: Metadata = {
   title: 'Grow Your Business, One Loyal Customer at a Time with Pitaku!',
@@ -26,14 +27,17 @@ export const metadata: Metadata = {
 }
 
 export default function Contact() {
-  // FOR A/B TESTING
-  const variant = cookies().get('ab_test_variant')?.value || 'A' // Default to A
+  // // FOR A/B TESTING
+  // const variant = cookies().get('ab_test_variant')?.value || 'A' // Default to A
 
   return (
-    <>
+    <main className="relative bg-gradient-to-tr from-green-200 via-white to-emerald-50">
       <Header />
-      <ContactForm variant={variant} />
+      <div className="w-full max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-4 items-start p-6">
+        <ContactImage />
+        <ContactForm />
+      </div>
       <Footer />
-    </>
+    </main>
   )
 }

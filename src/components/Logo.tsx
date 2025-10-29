@@ -1,6 +1,6 @@
 import Image from 'next/image'
 
-// import pitakuLogoMark from '@/images/pitaku-logomark.svg'
+import pitakuLogoMark from '@/images/pitaku-logomark.svg'
 import pitakuLogo from '@/images/pitaku-logo.svg'
 
 export function Logo(props: any) {
@@ -8,11 +8,11 @@ export function Logo(props: any) {
     return (
       <Image
         {...props}
-        src={pitakuLogo}
+        src={pitakuLogoMark}
         width={100}
         height={100}
         alt="pitaku-logo"
-        className="w-[150px] -ml-2"
+        // className="w-[150px] -ml-2"
       />
     )
   }

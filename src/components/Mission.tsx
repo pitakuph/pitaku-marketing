@@ -1,9 +1,9 @@
 'use client'
 import { Container } from './Container'
 import RevealOnScroll from '@/utils/aceternity/reveal-scroll'
-import { Button } from './Button'
+// import { Button } from './ui/button'
 import YouTubePlayer from './YoutubePlayer'
-import { sendGAEventCustom } from '@/utils/Helper'
+// import { sendGAEventCustom } from '@/utils/Helper'
 
 export default function Mission() {
   return (
@@ -32,7 +32,7 @@ export default function Mission() {
             </div>
             <div className="w-full flex flex-col items-center justify-center p-0 sm:p-6">
               <YouTubePlayer videoId="Jv-_i9i_MmY" />
-              <Button
+              {/* <Button
                 href="/contact"
                 color="green"
                 className="mt-10"
@@ -48,7 +48,7 @@ export default function Mission() {
                 <span className="px-4 font-normal text-xl text-white ">
                   Try It Free
                 </span>
-              </Button>
+              </Button> */}
             </div>
           </div>
         </Container>

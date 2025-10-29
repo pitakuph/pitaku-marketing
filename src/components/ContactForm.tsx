@@ -3,16 +3,19 @@
 import { useState } from 'react'
 import { Field, Switch } from '@headlessui/react'
 import { SubmitHandler, useForm } from 'react-hook-form'
-import { Button } from '@/components/Button'
+// import { Button } from '@/components/Button'
+import { Button } from './ui/button'
+import { CustomButton } from './Button'
 import { sendGAEventCustom } from '@/utils/Helper'
 import axios from 'axios'
 import { companyEmailMarketing, titleEmailMarketing } from '@/utils/Constant'
 
-import GrowYourBusinessContent from './contact/GrowYourBusinessContent'
-import BeTheHeroContent from './contact/BeTheHeroContent'
+// import GrowYourBusinessContent from './contact/GrowYourBusinessContent'
+// import BeTheHeroContent from './contact/BeTheHeroContent'
+import { ArrowRight } from 'lucide-react'
 
 type Props = {
-  variant: string
+  variant?: string
 }
 
 type Inputs = {
@@ -107,7 +110,7 @@ export default function ContactForm({ variant }: Props) {
 
   return (
     <div className="px-6 py-6 sm:py-12 lg:px-8 relative">
-      {submitted ? (
+      {/* {submitted ? (
         <div className="relative mx-auto max-w-2xl text-center my-14 sm:p-6">
           <h1 className="text-3xl font-display font-bold text-shamrock">
             Thank you for signing up to our loyalty program platform!
@@ -118,7 +121,7 @@ export default function ContactForm({ variant }: Props) {
             Stay tuned for more updates, and thank you for your patience and
             support.
           </p>
-          <Button
+          <CustomButton
             href="/"
             color="green"
             className="mt-10"
@@ -132,144 +135,148 @@ export default function ContactForm({ variant }: Props) {
             }
           >
             Go back home
-          </Button>
+          </CustomButton>
         </div>
-      ) : (
-        <>
-          {variant === 'A' ? <GrowYourBusinessContent /> : <BeTheHeroContent />}
-          <form
-            className="relative mx-auto my-16 max-w-4xl "
-            onSubmit={handleSubmit(onSubmit)}
-          >
-            <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
-              <div className="sm:col-span-2">
-                <label
-                  htmlFor="full_name"
-                  className="block text-sm font-medium  text-gray-900"
-                >
-                  Full Name
-                </label>
-                <div className="mt-2.5">
-                  <input
-                    type="text"
-                    id="full_name"
-                    placeholder="Your name"
-                    className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-shamrock sm:text-sm sm:"
-                    {...register('full_name', { required: true })}
-                  />
-                  {errors.full_name && (
-                    <span className="text-red-500 text-sm">
-                      Please provide your full name.
-                    </span>
-                  )}
-                </div>
-              </div>
+      ) : ( */}
+      <>
+        <h1 className="text-2xl lg:text-4xl font-bold text-gray-900 leading-none font-display">
+          Contact Us
+        </h1>
+        <p className="mt-2 text-gray-700">{`Let’s talk — we’d love to hear from you.`}</p>
 
-              <div className="sm:col-span-2">
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-medium  text-gray-900"
-                >
-                  Email
-                </label>
-                <div className="mt-2.5">
-                  <input
-                    type="email"
-                    id="email"
-                    autoComplete="email"
-                    placeholder="Your email"
-                    className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-shamrock sm:text-sm sm:"
-                    {...register('email', { required: true })}
-                  />
-                  {errors.email && (
-                    <span className="text-red-500 text-sm">
-                      Please provide your email.
-                    </span>
-                  )}
-                </div>
-              </div>
-
-              <div className="sm:col-span-2">
-                <label
-                  htmlFor="contact"
-                  className="block text-sm font-medium  text-gray-900"
-                >
-                  Mobile/Contact number
-                </label>
-                <div className="relative mt-2.5">
-                  <input
-                    type="tel"
-                    id="contact"
-                    autoComplete="tel"
-                    placeholder="Your mobile/contact number"
-                    maxLength={11}
-                    {...register('contact', { required: true })}
-                    className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-shamrock sm:text-sm sm:"
-                  />
-                  {errors.contact && (
-                    <span className="text-red-500 text-sm">
-                      Please provide your contact information.
-                    </span>
-                  )}
-                </div>
-              </div>
-
-              <div className="sm:col-span-2">
-                <label
-                  htmlFor="message_inquiry"
-                  className="block text-sm font-medium  text-gray-900"
-                >
-                  Send us your message
-                </label>
-                <div className="mt-2.5">
-                  <textarea
-                    id="message_inquiry"
-                    rows={4}
-                    placeholder="How can we help?"
-                    {...register('message_inquiry')}
-                    className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-shamrock sm:text-sm sm:"
-                    defaultValue={''}
-                  />
-                </div>
-              </div>
-
-              <div className="flex flex-row items-center gap-2">
-                <Field as="div" className="flex gap-x-4 sm:col-span-2">
-                  <div className="flex h-6 items-center">
-                    <Switch
-                      checked={agreed}
-                      onChange={setAgreed}
-                      className={classNames(
-                        agreed ? 'bg-shamrock' : 'bg-gray-200',
-                        'flex w-8 flex-none cursor-pointer rounded-full p-px ring-1 ring-inset ring-gray-900/5 transition-colors duration-200 ease-in-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-shamrock',
-                      )}
-                    >
-                      <span className="sr-only">Agree to policies</span>
-                      <span
-                        aria-hidden="true"
-                        className={classNames(
-                          agreed ? 'translate-x-3.5' : 'translate-x-0',
-                          'h-4 w-4 transform rounded-full bg-white shadow-sm ring-1 ring-gray-900/5 transition duration-200 ease-in-out',
-                        )}
-                      />
-                    </Switch>
-                  </div>
-                </Field>
-                <p className="text-sm  text-gray-600">
-                  By selecting this, you agree to our{' '}
-                  <a
-                    href="/privacy-policy"
-                    target="_blank"
-                    className="font-medium text-shamrock"
-                  >
-                    privacy&nbsp;policy
-                  </a>
-                  .
-                </p>
+        <form
+          className="relative mx-auto my-16 max-w-4xl "
+          onSubmit={handleSubmit(onSubmit)}
+        >
+          <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
+            <div className="col-span-2">
+              <label
+                htmlFor="full_name"
+                className="block text-sm font-medium  text-gray-900"
+              >
+                Full Name
+              </label>
+              <div className="mt-2.5">
+                <input
+                  type="text"
+                  id="full_name"
+                  placeholder="Your name"
+                  className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-shamrock sm:text-sm sm:"
+                  {...register('full_name', { required: true })}
+                />
+                {errors.full_name && (
+                  <span className="text-red-500 text-sm">
+                    Please provide your full name.
+                  </span>
+                )}
               </div>
             </div>
-            <div className="mt-10">
-              <Button
+
+            <div className="col-span-2">
+              <label
+                htmlFor="email"
+                className="block text-sm font-medium  text-gray-900"
+              >
+                Email
+              </label>
+              <div className="mt-2.5">
+                <input
+                  type="email"
+                  id="email"
+                  autoComplete="email"
+                  placeholder="Your email"
+                  className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-shamrock sm:text-sm sm:"
+                  {...register('email', { required: true })}
+                />
+                {errors.email && (
+                  <span className="text-red-500 text-sm">
+                    Please provide your email.
+                  </span>
+                )}
+              </div>
+            </div>
+
+            <div className="col-span-2">
+              <label
+                htmlFor="contact"
+                className="block text-sm font-medium  text-gray-900"
+              >
+                Mobile/Contact number
+              </label>
+              <div className="relative mt-2.5">
+                <input
+                  type="tel"
+                  id="contact"
+                  autoComplete="tel"
+                  placeholder="Your mobile/contact number"
+                  maxLength={11}
+                  {...register('contact', { required: true })}
+                  className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-shamrock sm:text-sm sm:"
+                />
+                {errors.contact && (
+                  <span className="text-red-500 text-sm">
+                    Please provide your contact information.
+                  </span>
+                )}
+              </div>
+            </div>
+
+            <div className="col-span-2">
+              <label
+                htmlFor="message_inquiry"
+                className="block text-sm font-medium  text-gray-900"
+              >
+                Send us your message
+              </label>
+              <div className="mt-2.5">
+                <textarea
+                  id="message_inquiry"
+                  rows={4}
+                  placeholder="How can we help?"
+                  {...register('message_inquiry')}
+                  className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-shamrock sm:text-sm sm:"
+                  defaultValue={''}
+                />
+              </div>
+            </div>
+
+            <div className="flex flex-row items-center gap-2 col-span-2">
+              <Field as="div" className="flex gap-x-4 col-span-2">
+                <div className="flex h-6 items-center">
+                  <Switch
+                    checked={agreed}
+                    onChange={setAgreed}
+                    className={classNames(
+                      agreed ? 'bg-shamrock' : 'bg-gray-200',
+                      'flex w-8 flex-none cursor-pointer rounded-full p-px ring-1 ring-inset ring-gray-900/5 transition-colors duration-200 ease-in-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-shamrock',
+                    )}
+                  >
+                    <span className="sr-only">Agree to policies</span>
+                    <span
+                      aria-hidden="true"
+                      className={classNames(
+                        agreed ? 'translate-x-3.5' : 'translate-x-0',
+                        'h-4 w-4 transform rounded-full bg-white shadow-sm ring-1 ring-gray-900/5 transition duration-200 ease-in-out',
+                      )}
+                    />
+                  </Switch>
+                </div>
+              </Field>
+              <p className="text-sm  text-gray-600">
+                By selecting this, you agree to our{' '}
+                <a
+                  href="/privacy-policy"
+                  target="_blank"
+                  className="font-medium text-shamrock"
+                >
+                  privacy&nbsp;policy
+                </a>
+                .
+              </p>
+            </div>
+          </div>
+          <div className="mt-10">
+            {/* <Button
                 type="submit"
                 color="green"
                 className={`
@@ -279,11 +286,25 @@ export default function ContactForm({ variant }: Props) {
             `}
               >
                 <span>{loading ? 'Submitting...' : 'Submit'}</span>
-              </Button>
-            </div>
-          </form>
-        </>
-      )}
+              </Button> */}
+
+            <Button
+              size="lg"
+              type="submit"
+              color="green"
+              className={`
+                  ${agreed ? 'opacity-100 pointer-events-auto' : 'opacity-50 pointer-events-none'} 
+                  ${!loading ? 'opacity-100 pointer-events-auto' : 'opacity-50 pointer-events-none'}           
+                  bg-green-600 hover:bg-green-700 text-white px-8 py-6 text-lg font-semibold group font-display     
+                  `}
+            >
+              {loading ? 'Submitting...' : 'Submit'}
+              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+            </Button>
+          </div>
+        </form>
+      </>
+      {/* )} */}
     </div>
   )
 }
