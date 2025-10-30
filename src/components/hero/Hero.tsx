@@ -53,7 +53,7 @@ export default function Hero() {
               transition={{ duration: 0.8, delay: 0.6 }}
               className="space-y-8"
             >
-              <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 font-display mb-5 leading-none lg:leading-tight">
+              <h1 className="text-3xl lg:text-6xl font-bold text-gray-900 font-display mb-5 leading-none lg:leading-tight">
                 {/* Start a loyalty program in minutes&nbsp; */}
                 {/* <span className="text-shamrock">for free</span> */}
                 {`We’re building something`}&nbsp;
@@ -62,7 +62,7 @@ export default function Hero() {
               </h1>
 
               {/* Description */}
-              <p className="my-5 text-xl text-gray-600 leading-relaxed max-w-xl">
+              <p className="my-5 text-lg lg:text-xl text-gray-600 leading-relaxed">
                 {/* Pitaku rewards makes it effortless to build customer loyalty and community. */}
                 {`Join the waitlist and get early access when we launch.`}
               </p>
