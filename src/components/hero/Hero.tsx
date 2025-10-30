@@ -15,18 +15,18 @@ export default function Hero() {
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 0.8 }}
-      className="relative overflow-hidden bg-gradient-to-br from-white via-shamrock/30 to-emerald-100 lg:px-16 border-dotted border-b-2 border-green-500"
+      className="relative overflow-hidden bg-gradient-to-br from-white via-shamrock/30 to-emerald-100 xl:px-16 border-dotted border-b-2 border-green-500"
       // className="relative overflow-hidden bg-gradient-to-br from-green-50 via-teal-100 to-emerald-500 lg:px-16"
     >
-      <div className="container mx-auto px-4 py-16 lg:py-24">
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
+      <div className="container mx-auto px-4 py-16 xl:py-24">
+        <div className="grid xl:grid-cols-2 gap-12 items-start">
           {/* Left Column - Content */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="space-y-8 lg:mt-10"
+            className="space-y-8 xl:mt-10"
           >
             {/* Trial Badge */}
             <motion.div
@@ -34,6 +34,7 @@ export default function Hero() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.4 }}
+              className="flex flex-col items-center xl:items-start"
             >
               <Badge
                 variant="secondary"
@@ -51,9 +52,9 @@ export default function Hero() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="space-y-8"
+              className="space-y-8 text-center xl:text-left"
             >
-              <h1 className="text-3xl lg:text-6xl font-bold text-gray-900 font-display mb-5 leading-none lg:leading-tight">
+              <h1 className="text-3xl lg:text-6xl xl:text-6xl font-bold text-gray-900 font-display mb-5 xl:leading-tight">
                 {/* Start a loyalty program in minutes&nbsp; */}
                 {/* <span className="text-shamrock">for free</span> */}
                 {`We’re building something`}&nbsp;
@@ -62,7 +63,7 @@ export default function Hero() {
               </h1>
 
               {/* Description */}
-              <p className="my-5 text-lg lg:text-xl text-gray-600 leading-relaxed">
+              <p className="my-5 text-lg xl:text-xl text-gray-600 leading-relaxed">
                 {/* Pitaku rewards makes it effortless to build customer loyalty and community. */}
                 {`Join the waitlist and get early access when we launch.`}
               </p>
@@ -74,12 +75,12 @@ export default function Hero() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.8 }}
-              className="flex flex-col sm:flex-row sm:items-center gap-4"
+              className="flex flex-col xl:flex-row items-center gap-4"
             >
               <Link href="https://m.me/pitakurewards" target="_blank">
                 <Button
                   size="lg"
-                  className="bg-green-600 hover:bg-green-700 text-white px-8 py-6 text-lg font-semibold group font-display"
+                  className="bg-green-600 hover:bg-green-700 text-white px-8 xl:py-6 text-lg font-semibold group font-display"
                 >
                   {/* Get started */}
                   Join Waitlist
@@ -91,7 +92,7 @@ export default function Hero() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="px-8 py-6 text-lg font-semibold group font-display"
+                  className="px-8 xl:py-6 text-lg font-semibold group font-display"
                 >
                   Learn More
                   <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
