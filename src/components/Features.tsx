@@ -2,49 +2,76 @@ import Image from 'next/image'
 import featuresImage from '@/images/features.jpg'
 
 const features = [
-    { name: 'Real-time Sales Tracker', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ' },
-    { name: 'Transaction Management', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ' },
-    { name: 'Customizable Loyalty Program', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ' },
-    { name: 'Marketing Bot', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ' },
-    { name: 'Merchant Support', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ' },
-  ]
-  
-  export default function Features() {
-    return (
-      <section 
-        id="features"
-        aria-label="Pitaku Features"
-        className="bg-slate-900">
-        <div className="mx-auto grid max-w-2xl grid-cols-1 items-center gap-x-20 gap-y-16 px-4 py-24 sm:px-6 sm:py-32 lg:max-w-7xl lg:grid-cols-2 lg:px-8">
-          <div>
-            <h2 className="text-3xl font-display font-bold tracking-tight text-shamrock sm:text-4xl">
-                Pitaku Features
-            </h2>
-            <p className="mt-4 text-white text-xl">
-              Discover how our customer-centric approach can elevate your brand and keep your customers engaged and coming back for more.
-            </p>
-  
-            <dl className="mt-16 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-y-16 lg:gap-x-8">
-              {features.map((feature) => (
-                <div key={feature.name} 
-                    // className="border-t border-shamrock pt-4"
-                    >
-                  <dt className="text-xl font-display font-medium text-shamrock">{feature.name}</dt>
-                  <dd className="mt-2 text-base text-white">{feature.description}</dd>
-                </div>
-              ))}
-            </dl>
-          </div>
-          {/* <div className="grid grid-cols-2 grid-rows-2 gap-4 sm:gap-6 lg:gap-8"> */}
-          <div className="grid grid-cols-1 overflow-hidden rounded-xl">
-            <Image 
-                src={featuresImage} 
-                alt='features'
-                width={2048}
-                height={2048}
-                className="w-auto h-full object-contain object-center"
-            />
-            {/* <img
+  {
+    name: 'Real-time Sales Tracker',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ',
+  },
+  {
+    name: 'Transaction Management',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ',
+  },
+  {
+    name: 'Customizable Loyalty Program',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ',
+  },
+  {
+    name: 'Marketing Bot',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ',
+  },
+  {
+    name: 'Merchant Support',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ',
+  },
+]
+
+export default function Features() {
+  return (
+    <section
+      id="features"
+      aria-label="Pitaku Features"
+      className="bg-slate-900"
+    >
+      <div className="mx-auto grid max-w-2xl grid-cols-1 items-center gap-x-20 gap-y-16 px-4 py-24 sm:px-6 sm:py-32 lg:max-w-7xl lg:grid-cols-2 lg:px-8">
+        <div>
+          <h2 className="text-3xl font-display font-bold tracking-tight text-shamrock sm:text-4xl">
+            Pitaku Features
+          </h2>
+          <p className="mt-4 text-white text-xl">
+            Discover how our customer-centric approach can elevate your brand
+            and keep your customers engaged and coming back for more.
+          </p>
+
+          <dl className="mt-16 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-y-16 lg:gap-x-8">
+            {features.map((feature) => (
+              <div
+                key={feature.name}
+                // className="border-t border-shamrock pt-4"
+              >
+                <dt className="text-xl font-display font-medium text-shamrock">
+                  {feature.name}
+                </dt>
+                <dd className="mt-2 text-base text-white">
+                  {feature.description}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+        {/* <div className="grid grid-cols-2 grid-rows-2 gap-4 sm:gap-6 lg:gap-8"> */}
+        <div className="grid grid-cols-1 overflow-hidden rounded-xl">
+          <Image
+            src={featuresImage}
+            alt="features"
+            width={2048}
+            height={2048}
+            className="w-auto h-full object-contain object-center"
+          />
+          {/* <img
               src="https://tailwindui.com/img/ecommerce-images/product-feature-03-detail-01.jpg"
               alt="Walnut card tray with white powder coated steel divider and 3 punchout holes."
               className="rounded-lg bg-gray-100"
@@ -64,9 +91,8 @@ const features = [
               alt="Walnut card tray filled with cards and card angled in dedicated groove."
               className="rounded-lg bg-gray-100"
             /> */}
-          </div>
         </div>
-      </section>
-    )
-  }
-  
+      </div>
+    </section>
+  )
+}

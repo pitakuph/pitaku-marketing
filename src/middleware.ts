@@ -1,21 +1,25 @@
-import { NextResponse } from "next/server";
-import type { NextRequest } from "next/server";
+// Without a defined matcher, this one line applies next-auth
+// to the entire project
+export { default } from 'next-auth/middleware'
 
-export function middleware(req: NextRequest) {
-  const cookieName = "ab_test_variant";
-  let variant = req.cookies.get(cookieName)?.value;
-
-  // If no variant is assigned, randomly assign one
-  if (!variant) {
-    variant = Math.random() < 0.5 ? "A" : "B"; // 50-50 split
-    const res = NextResponse.next();
-    res.cookies.set(cookieName, variant, { httpOnly: true, path: "/" });
-    return res;
-  }
-
-  return NextResponse.next();
-}
-
+// Applies next-auth only to matching routes - can be regex
+// Ref: https://nextjs.org/docs/app/building-your-application/routing/middleware#matcher
 export const config = {
-  matcher: "/contact", // Apply middleware only to the sign-up page
-};
+  matcher: [
+    // FOR NOW ONLY WHILE DEV
+    '/blog',
+    '/contact',
+    '/customers',
+    '/merchants/:paths*',
+    '/transactions',
+    // '/merchants/dashboard',
+    // '/merchants/profile',
+    // '/merchants/customers/:paths*',
+    // '/merchants/transactions/:paths*',
+    // '/merchants/products/:paths*',
+    // '/merchants/products/:paths*',
+    // '/merchants/rewards/:paths*',
+    // '/merchants/reports/:paths*',
+    // '/merchants/users/:paths*',
+  ],
+}

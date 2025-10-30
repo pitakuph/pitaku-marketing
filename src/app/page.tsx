@@ -1,56 +1,30 @@
 'use client'
-import { useState } from 'react'
 
-import { CallToAction } from '@/components/CallToAction'
-import { Footer } from '@/components/Footer'
-import { Header } from '@/components/Header'
-import { Hero } from '@/components/Hero'
-import { Pricing } from '@/components/Pricing'
-import { PrimaryFeatures } from '@/components/PrimaryFeatures'
-import { SecondaryFeatures } from '@/components/SecondaryFeatures'
-import { Testimonials } from '@/components/Testimonials'
-import Offers from '@/components/Offers'
+import Header from '@/components/header/Header'
+import Hero from '@/components/hero/Hero'
+import Belt from '@/components/hero/Belt'
+import Explainer from '@/components/Explainer'
+import HowItWorks from '@/components/HowItWorks'
 import Faqs from '@/components/Faqs'
-import Features from '@/components/Features'
-import Features2 from '@/components/Features2'
-import VideoDialog from '@/components/VideoDialog'
-import Goal from '@/components/Goal'
+import Testimonials from '@/components/Testimonials'
+import Features3 from '@/components/Features3'
+import Footer from '@/components/Footer'
 
-import { sendGAEventCustom } from '@/utils/Helper'
+// import { sendGAEventCustom } from '@/utils/Helper';
 
 export default function Home() {
-
-  const [isOpen, setIsOpen] = useState<boolean>(false);
-  const onWatchClick = () => {
-    setIsOpen(true);
-
-    sendGAEventCustom({ 
-      action: 'click', 
-      category: 'Button',
-      label: 'Watch how Pitaku works',
-      value: 'Watch how Pitaku works' 
-    })    
-  }
-
   return (
-    <div className='bg-[#fcfcef]'>
+    <div>
       <main>
         <Header />
         <Hero />
-        <Goal />
-        {/* <VideoDialog 
-          isOpen={isOpen} 
-          setIsOpen={setIsOpen}
-          /> */}
-        {/* <Offers /> */}
-        <PrimaryFeatures />
-        {/* <SecondaryFeatures /> */}
-        {/* <Features /> */}
-        {/* <Features2 /> */}
-        {/* <Pricing /> */}
-        <Faqs />
-        <CallToAction />
+        {/* <Belt /> */}
+        <Explainer />
+        <HowItWorks />
+        <Features3 />
         {/* <Testimonials /> */}
+        {/* <CallToAction /> */}
+        <Faqs />
       </main>
       <Footer />
     </div>

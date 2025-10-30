@@ -7,7 +7,8 @@ import { useRef, useState } from 'react'
 import axios, { AxiosResponse } from 'axios'
 import { sendGAEventCustom } from '@/utils/Helper'
 
-import { Button } from '../Button'
+// import { Button } from '../Button'
+import { CustomButton } from '../Button'
 import Welcome from './components/Welcome'
 import PrivacyPolicy from './components/PrivacyPolicy'
 import ComboField from './components/ComboField'
@@ -21,7 +22,7 @@ export type CustomerFieldProps = {
   errors: any
   autoFocus?: boolean
   errorMessage?: string
-  register: Function
+  register: any
 }
 
 type Customer = {
@@ -86,7 +87,7 @@ export default function ContactForm() {
       }
     } catch (error: any) {
       switch (error?.response?.status) {
-        case 400:
+        case 400: {
           const message = error.response.data.message
           const invalidMobileFormat = message.includes('mobile: must match')
           setErrorMessage(
@@ -95,11 +96,13 @@ export default function ContactForm() {
               : error.response.data.message,
           )
           break
-        case 500:
+        }
+        case 500: {
           setErrorMessage(
             "We've encountered problem submitting your request. Please try again later.",
           )
           break
+        }
       }
       setFormState('pending')
       setAgreed(false)
@@ -111,17 +114,18 @@ export default function ContactForm() {
   async function handleCaptchaSubmission(token: string | null) {
     try {
       if (token) {
-        await fetch("/api/recaptcha", {
-          method: "POST",
+        await fetch('/api/recaptcha', {
+          method: 'POST',
           headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
           },
           body: JSON.stringify({ token }),
-        });
+        })
         setVerified(true)
       }
     } catch (e) {
+      console.log(e)
       setVerified(false)
     }
   }
@@ -227,7 +231,7 @@ export default function ContactForm() {
           </div>
         )}
         <div className="mt-10">
-          <Button
+          <CustomButton
             type="submit"
             color="green"
             disabled={!agreed || !verified}
@@ -246,7 +250,7 @@ export default function ContactForm() {
             `}
           >
             <span>Submit</span>
-          </Button>
+          </CustomButton>
         </div>
       </form>
     </div>
