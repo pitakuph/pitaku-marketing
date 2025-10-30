@@ -89,7 +89,7 @@ export default function About() {
                     Clarity
                   </div>
                   <div className="text-sm text-gray-600">
-                    in design, in data, and in direction.
+                    In design, in data, and in direction.
                   </div>
                 </div>
                 <div className="">
@@ -97,13 +97,13 @@ export default function About() {
                     Intention
                   </div>
                   <div className="text-sm text-gray-600">
-                    every feature must have a purpose that drives value.
+                    Every feature must have a purpose that drives value.
                   </div>
                 </div>
                 <div className="">
                   <div className="text-2xl font-bold text-gray-900">Impact</div>
                   <div className="text-sm text-gray-600">
-                    our work must make measurable improvements for merchants and
+                    Our work must make measurable improvements for merchants and
                     their customers
                   </div>
                 </div>

@@ -5,6 +5,7 @@ import '@/styles/tailwind.css'
 import { type Metadata } from 'next'
 
 import { GoogleAnalytics } from '@next/third-parties/google'
+import { Analytics } from '@vercel/analytics/next'
 
 export const metadata: Metadata = {
   title: {
@@ -68,6 +69,7 @@ export default function RootLayout({
         />
       </Head>
       <body className="flex h-full flex-col">{children}</body>
+      <Analytics />
       <GoogleAnalytics gaId="G-9STR1P6QEC" />
     </html>
   )
